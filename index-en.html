@@ -1,49 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MoreTIC — Computer Help, Training & Home Support (Fribourg)</title>
 
-  <title>MoreTIC — Calm IT support and computer lessons in Fribourg</title>
-  <meta name="description" content="Friendly IT help, troubleshooting and computer lessons in Fribourg — simple, flexible and stress-free.">
-
-  <link rel="icon" href="assets/logo-moretic.png" type="image/png">
-  <meta property="og:image" content="https://moretic.ch/assets/logo-moretic.png">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="MoreTIC — Calm IT support and computer lessons in Fribourg">
-  <meta property="og:description" content="Friendly IT help, troubleshooting and computer lessons in Fribourg — simple, flexible and stress-free.">
-  <meta property="og:url" content="https://moretic.ch/index-en.html">
-
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            mint: {
-              50: '#f3fbf7', 100: '#dff7ec', 200: '#bff0d9', 300: '#9ae3c2',
-              400: '#6fd4a6', 500: '#4cc08d', 600: '#36a77a', 700: '#2e8665',
-              800: '#276a54', 900: '#214f43'
-            },
-            dolphin: '#c5c8c9'
-          }
-        }
-      }
-    }
-  </script>
+  <!-- SEO / i18n -->
+  <meta name="description" content="MoreTIC: computer assistance, home support, device setup, and training in Fribourg and around. Friendly, patient, efficient." />
+  <link rel="canonical" href="https://moretic.ch/index-en.html" />
+  <link rel="alternate" hreflang="fr" href="https://moretic.ch/index.html" />
+  <link rel="alternate" hreflang="en" href="https://moretic.ch/index-en.html" />
+  <link rel="alternate" hreflang="x-default" href="https://moretic.ch/index.html" />
 
   <style>
-    @media (prefers-reduced-motion: no-preference) {
-      .hover-float:hover { transform: translateY(-2px); }
-      .transition-soft { transition: all 200ms ease; }
+    :root{
+      --bg:#0f1115; --card:#151823; --muted:#9aa4b2; --text:#e6e9ef; --accent:#8ee3ff; --line:#222636;
+      --brand:#00C2FF; --brand2:#B9FF66;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:1100px;margin:0 auto;padding:24px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:8px 0 24px}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.5px}
+    .logo-badge{
+      width:36px;height:36px;border-radius:12px;display:grid;place-items:center;
+      background:linear-gradient(135deg,var(--brand),var(--brand2));color:#0a0a0a;font-weight:900
+    }
+    nav{display:flex;gap:10px;align-items:center}
+    .lang{display:inline-flex;gap:6px;background:var(--card);border:1px solid var(--line);padding:6px;border-radius:12px}
+    .lang a{padding:6px 10px;border-radius:8px}
+    .lang a.active{background:#0b0d13;border:1px solid var(--line);pointer-events:none;color:#d6f2ff}
+    .cta{display:inline-flex;gap:10px;flex-wrap:wrap}
+    .btn{background:var(--brand);color:#041019;border:none;border-radius:12px;padding:10px 14px;font-weight:700}
+    .btn.secondary{background:transparent;color:var(--text);border:1px solid var(--line)}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
+    .hero{background:linear-gradient(180deg,rgba(0,194,255,.12),transparent);border:1px solid var(--line);border-radius:20px;padding:28px;margin-bottom:24px}
+    .hero h1{font-size:clamp(26px,4.2vw,40px);line-height:1.2;margin:0 0 10px}
+    .muted{color:var(--muted)}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
+    .kpis{display:flex;gap:16px;flex-wrap:wrap;margin-top:12px}
+    .kpi{flex:1 1 160px;background:#0f1320;border:1px solid var(--line);border-radius:14px;padding:12px;text-align:center}
+    h2{font-size:clamp(20px,3vw,26px);margin:6px 0 12px}
+    ul{margin:0;padding-left:18px}
+    footer{margin:28px 0 10px;color:var(--muted);font-size:.95rem}
+    .col-12{grid-column:1/-1}
+    .col-4{grid-column:span 4}
+    @media (max-width:900px){
+      .col-4{grid-column:1/-1}
+      header{flex-direction:column;align-items:flex-start}
     }
   </style>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "MoreTIC",
-    "url": "https://moretic.ch",
-    "logo": "https://moretic.ch/assets/logo-moretic.png"
-  }
-  </script>
 </head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">
+        <div class="logo-badge">+i</div>
+        <div>MoreTIC · Julien Moret</div>
+      </div>
+      <nav>
+        <div class="lang" aria-label="Language selector">
+          <a href="/index.html" hreflang="fr" lang="fr">FR</a>
+          <a href="/index-en.html" class="active" hreflang="en" lang="en">EN</a>
+        </div>
+        <div class="cta">
+          <a class="btn" href="tel:+41768220051">Call +41 76 822 00 51</a>
+          <a class="btn secondary" href="mailto:contact@moretic.ch?subject=MoreTIC%20support%20request">Email</a>
+        </div>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h1>Patient, clear, and practical computer help.</h1>
+      <p class="muted">For homes and small businesses in Fribourg and nearby. Setup, troubleshoot, train — at your place or remotely.</p>
+      <div class="kpis">
+        <div class="kpi"><strong>Home support</strong><br>Assistance at your place</div>
+        <div class="kpi"><strong>Remote help</strong><br>Quick fixes online</div>
+        <div class="kpi"><strong>Training</strong><br>Step-by-step lessons</div>
+        <div class="kpi"><strong>Other requests</strong><br>Tell me what you need</div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="col-4 card">
+        <h2>Home support</h2>
+        <p class="muted">Printer, Wi-Fi, backup, phone & PC setup, updates, accessibility tweaks.</p>
+        <ul>
+          <li>On-site in Fribourg region</li>
+          <li>Calm, patient, confidential</li>
+          <li>Clear fixes you can repeat</li>
+        </ul>
+      </div>
+
+      <div class="col-4 card">
+        <h2>Remote assistance</h2>
+        <p class="muted">Fast help via secure remote tools when a visit isn’t needed.</p>
+        <ul>
+          <li>Quick diagnostics</li>
+          <li>Small issues solved now</li>
+          <li>Advice before you buy</li>
+        </ul>
+      </div>
+
+      <div class="col-4 card">
+        <h2>Training</h2>
+        <p class="muted">Personalized lessons: email, files, photos, safety, smartphone basics.</p>
+        <ul>
+          <li>Simple language, no jargon</li>
+          <li>Short guides you keep</li>
+          <li>At your pace</li>
+        </ul>
+      </div>
+
+      <div class="col-12 card">
+        <h2>Other requests</h2>
+        <p class="muted">Need something else? Tell me. If it’s digital, there’s likely a path.</p>
+        <ul>
+          <li>Buying advice & setup (PC, phone, printer)</li>
+          <li>Small business basics (mail, domain, site)</li>
+          <li>Data tidy-up and backup plans</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="y"></span> MoreTIC — Fribourg, Switzerland · <a href="/index.html" hreflang="fr">Version française</a> · <a href="/sitemap.xml">Sitemap</a>
+    </footer>
+  </div>
+
+  <script>
+    // tiny niceties
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
