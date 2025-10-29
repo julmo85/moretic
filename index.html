@@ -1,176 +1,234 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" class="scroll-smooth">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MoreTIC — Assistance & Services</title>
-  <meta name="description" content="Assistance informatique, maintenance, cours et conseils — Fr/EN" />
+  <title>MoreTIC — Informatique tranquille, entraide réelle</title>
+  <meta name="description" content="Cours, dépannage et accompagnement informatique à Fribourg — simple, flexible et sans stress." />
+  <link rel="icon" href="/favicon.ico" />
 
-  <!-- hreflang alternates (ajuste l'URL si besoin) -->
-  <link rel="alternate" href="https://moretic.ch/" hreflang="fr" />
-  <link rel="alternate" href="https://moretic.ch/en/" hreflang="en" />
-  <link rel="alternate" href="https://moretic.ch/" hreflang="x-default" />
-
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            mint: {
+              50: '#f3fbf7', 100: '#dff7ec', 200: '#bff0d9', 300: '#9ae3c2',
+              400: '#6fd4a6', 500: '#4cc08d', 600: '#36a77a', 700: '#2e8665',
+              800: '#276a54', 900: '#214f43'
+            },
+            dolphin: '#c5c8c9'
+          }
+        }
+      }
+    }
+  </script>
   <style>
-    :root{
-      --bg:#0b0f14;            /* nuit */
-      --bg-2:#0e1620;          /* nuit + */
-      --ink:#e5f2ff;           /* encre claire */
-      --muted:#a7bed3;         /* texte secondaire */
-      --neon:#00f7ff;          /* cyan néon */
-      --violet:#b084ff;        /* violet rétro */
-      --accent:#63ffa7;        /* vert phospho */
-      --card:#0d141c80;        /* glass */
-      --border:#1f2b3a;        /* bord discret */
-      --max: 1080px;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;color:var(--ink);background:radial-gradient(1200px 600px at 50% -10%, #1f2540 0%, transparent 60%),
-      linear-gradient(160deg,var(--bg),var(--bg-2));
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
-      line-height:1.6;
-      overflow-x:hidden;
-    }
-    /* GRILLE rétro au sol */
-    .grid{
-      position:fixed;inset:0;pointer-events:none;opacity:.25;mix-blend-mode:screen;
-      background:
-        linear-gradient(transparent 0 98%, rgba(0,247,255,.5) 99% 100%),
-        linear-gradient(90deg, transparent 0 98%, rgba(176,132,255,.45) 99% 100%);
-      background-size: 100% 48px, 48px 100%;
-      transform: perspective(800px) rotateX(60deg) translateY(35vh);
-      filter: drop-shadow(0 0 12px rgba(0,247,255,.25));
-    }
-    header{
-      position:sticky;top:0;z-index:10;background:linear-gradient(180deg, #0b0f1499 0%, #0b0f1400 100%);
-      backdrop-filter: blur(6px);
-      border-bottom:1px solid var(--border);
-    }
-    .nav{
-      max-width:var(--max);margin:0 auto;display:flex;gap:16px;align-items:center;justify-content:space-between;
-      padding:12px 16px;
-    }
-    .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
-    .logo{
-      width:34px;height:34px;border-radius:10px;display:grid;place-items:center;
-      background: conic-gradient(from 210deg, var(--neon), var(--violet), var(--accent), var(--neon));
-      box-shadow: 0 0 24px #00f7ff55, inset 0 0 18px #000;
-      color:#071015;font-weight:900;font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
-    }
-    .brand span{font-weight:700;letter-spacing:.3px}
-    nav a{color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:10px}
-    nav a:hover{color:var(--ink);background:#ffffff0e}
-    .lang{display:flex;gap:8px}
-    .pill{border:1px solid var(--border);}
-
-    .hero{position:relative;isolation:isolate}
-    .hero .wrap{max-width:var(--max);margin:0 auto;padding:72px 16px 32px}
-    .eyebrow{color:var(--accent);text-transform:uppercase;letter-spacing:.2em;font-size:12px;font-weight:700}
-    h1{margin:8px 0 12px;line-height:1.12;font-size: clamp(32px, 5vw, 56px);}
-    .tagline{font-size: clamp(16px, 2.2vw, 20px);color:var(--muted);max-width:60ch}
-
-    .cta{display:flex;gap:12px;margin-top:22px}
-    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:14px;
-      border:1px solid var(--border);text-decoration:none;color:var(--ink);font-weight:600}
-    .btn-primary{
-      background: linear-gradient(90deg, #102a2e, #14182e);
-      border:1px solid #1a3d46; box-shadow: 0 0 16px #00f7ff33;
-    }
-    .btn:hover{transform: translateY(-1px); box-shadow: 0 10px 24px #00000040}
-
-    .cards{max-width:var(--max);margin:12px auto 40px;padding:0 16px;display:grid;gap:16px;
-      grid-template-columns: repeat(12, 1fr)}
-    .card{grid-column: span 12;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px;
-      backdrop-filter: blur(6px)}
-    .card h3{margin:0 0 6px;font-size:20px}
-    .card p{margin:0;color:var(--muted)}
-    @media(min-width:760px){ .card{grid-column: span 6} }
-    @media(min-width:1024px){ .card{grid-column: span 4} }
-
-    .stripe{
-      background: radial-gradient(800px 200px at 50% 0, #00f7ff22, transparent 60%), linear-gradient(180deg,transparent, #0b0f14);
-      border-top:1px solid var(--border);border-bottom:1px solid var(--border);
-    }
-
-    .contact{max-width:var(--max);margin:0 auto;padding:28px 16px 64px}
-    .panel{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:20px;display:grid;gap:14px}
-    .panel strong{font-size:18px}
-
-    footer{border-top:1px solid var(--border);margin-top:40px}
-    .foot{max-width:var(--max);margin:0 auto;padding:18px 16px;color:var(--muted);font-size:14px}
-
-    /* Petit effet CRT subtil (rétro) */
-    .crt:before{
-      content:"";position:absolute;inset:0;pointer-events:none;opacity:.06;mix-blend-mode:screen;
-      background: repeating-linear-gradient(0deg, #fff2 0 2px, transparent 2px 4px);
+    @media (prefers-reduced-motion: no-preference) {
+      .hover-float:hover { transform: translateY(-2px); }
+      .transition-soft { transition: all 200ms ease; }
     }
   </style>
 </head>
-<body>
-  <div class="grid" aria-hidden="true"></div>
-  <header>
-    <div class="nav">
-      <a class="brand" href="/" aria-label="MoreTIC Accueil">
-        <div class="logo">+C</div>
-        <span>MoreTIC</span>
+<body class="bg-gradient-to-b from-mint-50 to-white text-slate-800 antialiased">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-mint-100">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3 group">
+        <!-- LOGO: vert sur fond blanc + bordure gris dauphin -->
+        <div class="h-9 px-2 rounded-xl bg-white text-mint-600 inline-flex items-center justify-center font-bold border border-dolphin shadow-sm transition-soft tracking-[0.06em]">MTIC</div>
+        <div>
+          <span class="block font-semibold leading-tight">MoreTIC</span>
+          <span class="block text-xs text-slate-500 -mt-1">Informatique tranquille</span>
+        </div>
       </a>
-      <nav>
-        <a href="/services">Services</a>
-        <a href="/contact">Contact</a>
-        <span class="lang">
-          <a class="pill" href="/">FR</a>
-          <a class="pill" href="/en/">EN</a>
-        </span>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="#services" class="text-slate-600 hover:text-slate-900 transition-soft">Services</a>
+        <a href="#entraide" class="text-slate-600 hover:text-slate-900 transition-soft">Entraide</a>
+        <a href="#tarifs" class="text-slate-600 hover:text-slate-900 transition-soft">Tarifs</a>
+        <a href="#contact" class="text-slate-600 hover:text-slate-900 transition-soft">Contact</a>
       </nav>
+      <a href="https://wa.me/41768220051" target="_blank" class="inline-flex items-center gap-2 rounded-xl bg-mint-600 text-white px-4 py-2 text-sm font-medium shadow-sm hover:bg-mint-700 hover:shadow transition-soft hover-float">
+        <span>Demander un coup de main</span>
+      </a>
     </div>
   </header>
 
-  <section class="hero crt">
-    <div class="wrap">
-      <div class="eyebrow">Assistance · Maintenance · Cours</div>
-      <h1>Informatique claire, <span style="color:var(--neon)">humaine</span>, et durable</h1>
-      <p class="tagline">Dépannage, mise en service, conseils d’achat, formations Windows & Android, à Fribourg et à distance. Un style rétro‑futuriste, mais des solutions très actuelles.</p>
-      <div class="cta">
-        <a class="btn btn-primary" href="/contact">Prendre contact</a>
-        <a class="btn" href="/services">Voir les services</a>
+  <!-- HERO -->
+  <section class="relative">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-24 grid lg:grid-cols-2 gap-10 items-center">
+      <div>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900">
+          Informatique sans stress.
+          <span class="block text-mint-700">De l'entraide, pas du jargon.</span>
+        </h1>
+        <p class="mt-5 text-lg text-slate-600 max-w-xl">On prend le temps, on explique, on s'adapte. Vous restez aux commandes.</p>
+        <div class="mt-8 flex flex-wrap items-center gap-4">
+          <a href="#services" class="rounded-xl bg-slate-900 text-white px-5 py-3 text-sm font-medium shadow-sm hover:shadow hover-float transition-soft">Découvrir les services</a>
+          <a href="#entraide" class="rounded-xl border border-slate-300 text-slate-700 px-5 py-3 text-sm font-medium hover:bg-white hover:shadow-sm transition-soft">Esprit d'entraide</a>
+        </div>
+        <div class="mt-6 flex items-center gap-4 text-sm text-slate-500">
+          <div class="flex items-center gap-2"><span class="h-2.5 w-2.5 rounded-full bg-mint-500"></span> Flexible — sur place ou à distance</div>
+          <div class="hidden sm:block">•</div>
+          <div>Français / Anglais</div>
+        </div>
+      </div>
+      <!-- Illustration compacte avec cartes uniformes (4 cartes même taille) -->
+      <div class="relative">
+        <div class="rounded-2xl bg-white shadow-sm ring-1 ring-mint-100 p-4">
+          <div class="grid grid-cols-2 grid-rows-2 gap-3 h-full">
+            <div class="rounded-xl bg-mint-100 p-3 flex flex-col justify-center">
+              <p class="text-sm font-medium text-mint-800 leading-tight">Accompagnement à domicile</p>
+              <p class="text-xs text-mint-900/70 leading-snug mt-1">Installation PC, Wi‑Fi, sauvegardes… calmement.</p>
+            </div>
+            <div class="rounded-xl bg-slate-100 p-3 flex flex-col justify-center">
+              <p class="text-sm font-medium text-slate-700 leading-tight">Assistance à distance</p>
+              <p class="text-xs text-slate-600 leading-snug mt-1">Quand vous voulez, par étapes.</p>
+            </div>
+            <div class="rounded-xl bg-slate-100 p-3 flex flex-col justify-center">
+              <p class="text-sm font-medium text-slate-700 leading-tight">Cours sur mesure</p>
+              <p class="text-xs text-slate-600 leading-snug mt-1">Rythme doux, objectifs clairs.</p>
+            </div>
+            <div class="rounded-xl bg-mint-50 border border-mint-100 p-3 flex flex-col justify-center">
+              <p class="text-sm font-medium text-mint-900 leading-tight">Esprit communauté</p>
+              <p class="text-xs text-mint-900/70 leading-snug mt-1">Tips, fiches mémo, petites victoires partagées.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="cards">
-    <article class="card">
-      <h3>Dépannage & Maintenance</h3>
-      <p>Windows, réseaux, imprimantes, sauvegardes — interventions rapides et pédagogiques.</p>
-    </article>
-    <article class="card">
-      <h3>Mise en route appareils</h3>
-      <p>PC, smartphones, routeurs, TV — installation propre, réglages utiles, sécurité.</p>
-    </article>
-    <article class="card">
-      <h3>Formations & Conseils</h3>
-      <p>Cours 1‑to‑1, méthodes pas‑à‑pas, choix de matériel, sobriété numérique.</p>
-    </article>
+  <!-- SERVICES -->
+  <section id="services" class="py-14 lg:py-20 bg-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">Ce que je fais (simple et flexible)</h2>
+      <p class="mt-3 text-slate-600 max-w-2xl">Choisissez un point de départ. On ajuste ensuite selon vos besoins — sans pression.</p>
+      <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <article class="rounded-2xl border border-slate-200 p-6 bg-slate-50 hover:shadow-sm transition-soft hover-float">
+          <h3 class="font-semibold text-slate-900">Assistance à distance</h3>
+          <p class="mt-2 text-sm text-slate-600">Prise en main sécurisée, résolution pas à pas, avec explications simples.</p>
+          <ul class="mt-3 text-sm text-slate-600 list-disc list-inside">
+            <li>Petits bugs Windows / Mac</li>
+            <li>Paramètres Android / iPhone</li>
+            <li>Nettoyage et sauvegardes</li>
+          </ul>
+        </article>
+        <article class="rounded-2xl border border-slate-200 p-6 bg-slate-50 hover:shadow-sm transition-soft hover-float">
+          <h3 class="font-semibold text-slate-900">À domicile / sur site</h3>
+          <p class="mt-2 text-sm text-slate-600">Installation de matériel, Wi‑Fi fiable, réorganisation zen de votre espace numérique.</p>
+          <ul class="mt-3 text-sm text-slate-600 list-disc list-inside">
+            <li>PC, imprimantes, réseau</li>
+            <li>Fibre/routeur, TV connectées</li>
+            <li>Conseils achats</li>
+          </ul>
+        </article>
+        <article class="rounded-2xl border border-slate-200 p-6 bg-slate-50 hover:shadow-sm transition-soft hover-float">
+          <h3 class="font-semibold text-slate-900">Cours personnalisés</h3>
+          <p class="mt-2 text-sm text-slate-600">Pas de jargon. Des objectifs concrets, votre rythme, vos appareils.</p>
+          <ul class="mt-3 text-sm text-slate-600 list-disc list-inside">
+            <li>Premiers pas / remise à niveau</li>
+            <li>Sécurité en ligne</li>
+            <li>Cloud & organisation</li>
+          </ul>
+        </article>
+      </div>
+    </div>
   </section>
 
-  <div class="stripe">
-    <section class="contact">
-      <div class="panel">
-        <strong>Un besoin précis ? On fait simple.</strong>
-        <div style="display:flex;flex-wrap:wrap;gap:10px">
-          <a class="btn btn-primary" href="mailto:contact@moretic.ch">contact@moretic.ch</a>
-          <a class="btn" href="tel:+41768220051">+41 76 822 00 51</a>
-          <a class="btn" href="/contact">Formulaire</a>
+  <!-- ENTRAIDE -->
+  <section id="entraide" class="py-14 lg:py-20 bg-gradient-to-b from-white to-mint-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="lg:flex lg:items-end lg:justify-between">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">L'esprit d'entraide</h2>
+          <p class="mt-3 text-slate-600 max-w-2xl">On construit la confiance par la clarté. Vous comprenez, vous décidez. Et vous repartez avec un mémo simple.</p>
+        </div>
+        <div class="mt-6 lg:mt-0">
+          <a href="#contact" class="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 transition-soft hover-float">Demander un premier échange</a>
         </div>
       </div>
-    </section>
-  </div>
 
-  <footer>
-    <div class="foot">© <span id="y"></span> MoreTIC — Fribourg · CH</div>
+      <div class="mt-8 grid lg:grid-cols-3 gap-6">
+        <div class="rounded-2xl border border-mint-200 bg-white p-6">
+          <p class="text-sm text-slate-600">« Explications limpides, zéro pression. J'ai enfin osé toucher aux réglages sans peur. »</p>
+          <p class="mt-3 text-xs text-slate-500">— Témoignage client</p>
+        </div>
+        <div class="rounded-2xl border border-mint-200 bg-white p-6">
+          <p class="text-sm text-slate-600">« On a fait le tri ensemble. Maintenant tout est rangé et sauvegardé. Respire. »</p>
+          <p class="mt-3 text-xs text-slate-500">— Témoignage client</p>
+        </div>
+        <div class="rounded-2xl border border-mint-200 bg-white p-6">
+          <p class="text-sm text-slate-600">« Gentil, patient et efficace. J'ai reçu une fiche mémo pour ne pas oublier. »</p>
+          <p class="mt-3 text-xs text-slate-500">— Témoignage client</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TARIFS -->
+  <section id="tarifs" class="py-14 lg:py-20 bg-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">Tarifs clairs</h2>
+      <p class="mt-3 text-slate-600 max-w-2xl">Transparents, sans surprise. Tarif réduit possible pour les situations particulières.</p>
+      <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="rounded-2xl border border-slate-200 p-6 bg-slate-50">
+          <h3 class="font-semibold text-slate-900">Assistance à distance</h3>
+          <p class="mt-2 text-sm text-slate-600">Facturation au quart d'heure après le premier 30 min.</p>
+          <p class="mt-4 text-3xl font-extrabold text-slate-900">CHF 60<span class="text-base font-normal text-slate-600"> / h</span></p>
+        </div>
+        <div class="rounded-2xl border border-mint-300 p-6 bg-white ring-2 ring-mint-200">
+          <h3 class="font-semibold text-slate-900">À domicile (Fribourg)</h3>
+          <p class="mt-2 text-sm text-slate-600">Déplacement inclus en ville. Autour: petit forfait.</p>
+          <p class="mt-4 text-3xl font-extrabold text-slate-900">CHF 80<span class="text-base font-normal text-slate-600"> / h</span></p>
+        </div>
+        <div class="rounded-2xl border border-slate-200 p-6 bg-slate-50">
+          <h3 class="font-semibold text-slate-900">Cours personnalisés</h3>
+          <p class="mt-2 text-sm text-slate-600">En solo ou duo. Carnet de suivi inclus.</p>
+          <p class="mt-4 text-3xl font-extrabold text-slate-900">CHF 70<span class="text-base font-normal text-slate-600"> / h</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-14 lg:py-20 bg-gradient-to-b from-mint-50 to-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-10 items-start">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">On fait connaissance ?</h2>
+          <p class="mt-3 text-slate-600">Un message court suffit. Dites ce que vous voulez accomplir, où vous êtes, et vos disponibilités.</p>
+          <ul class="mt-6 space-y-3 text-slate-700">
+            <li class="flex items-center gap-3"><span class="h-2.5 w-2.5 rounded-full bg-mint-500"></span> WhatsApp / Téléphone : <a class="underline hover:no-underline" href="tel:+41768220051">+41 76 822 00 51</a></li>
+            <li class="flex items-center gap-3"><span class="h-2.5 w-2.5 rounded-full bg-mint-500"></span> E‑mail : <a class="underline hover:no-underline" href="mailto:contact@moretic.ch">contact@moretic.ch</a></li>
+            <li class="flex items-center gap-3"><span class="h-2.5 w-2.5 rounded-full bg-mint-500"></span> Fribourg et alentours — interventions à domicile</li>
+          </ul>
+          <div class="mt-4">
+            <a href="https://wa.me/41768220051" target="_blank" class="inline-flex items-center gap-2 rounded-xl border border-mint-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 transition-soft hover-float">Écrire sur WhatsApp</a>
+          </div>
+        </div>
+        <form class="rounded-2xl border border-mint-200 bg-white p-6 shadow-sm" onsubmit="alert('Merci ! Votre message a été préparé dans votre client mail.'); return false;">
+          <label class="block text-sm font-medium text-slate-700">Votre message</label>
+          <textarea class="mt-2 w-full rounded-xl border border-slate-300 p-3 focus:outline-none focus:ring-4 focus:ring-mint-200" rows="5" placeholder="Bonjour Julien, j'aurais besoin d'un coup de main pour…"></textarea>
+          <div class="mt-4 grid sm:grid-cols-2 gap-4">
+            <input type="text" placeholder="Nom" class="w-full rounded-xl border border-slate-300 p-3 focus:outline-none focus:ring-4 focus:ring-mint-200" />
+            <input type="email" placeholder="E‑mail" class="w-full rounded-xl border border-slate-300 p-3 focus:outline-none focus:ring-4 focus:ring-mint-200" />
+          </div>
+          <button type="button" onclick="window.location='mailto:contact@moretic.ch?subject=Demande%20d\'aide%20MoreTIC&body=Bonjour%20Julien%2C%20j\'aurais%20besoin%20d\'un%20coup%20de%20main%20pour…';" class="mt-6 w-full rounded-xl bg-slate-900 text-white px-5 py-3 text-sm font-medium shadow-sm hover:shadow hover-float transition-soft">Envoyer par e‑mail</button>
+          <p class="mt-3 text-xs text-slate-500">Formulaire simple côté client pour rester léger. Pas de collecte cachée.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-8 border-t border-mint-100 text-center text-sm text-slate-500">
+    <p>© <span id="year"></span> MoreTIC — Informatique tranquille • Fribourg</p>
   </footer>
 
-  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
