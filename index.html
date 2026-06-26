@@ -32,13 +32,17 @@
       .hover-float:hover { transform: translateY(-2px); }
       .transition-soft { transition: all 200ms ease; }
     }
+
+    details > summary::-webkit-details-marker {
+      display: none;
+    }
   </style>
 </head>
 
 <body class="bg-gradient-to-b from-mint-50 to-white text-slate-800 antialiased">
   <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-mint-100">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-      <a href="#" class="flex items-center gap-3 group">
+      <a href="#accueil" class="flex items-center gap-3 group">
         <div class="h-9 px-2 rounded-xl bg-white text-mint-600 inline-flex items-center justify-center font-bold border border-dolphin shadow-sm transition-soft tracking-[0.06em]">MTIC</div>
         <div>
           <span class="block font-semibold leading-tight">MoreTIC</span>
@@ -49,19 +53,23 @@
       <nav class="hidden lg:flex items-center gap-6 text-sm">
         <a href="#accueil" class="text-slate-600 hover:text-slate-900 transition-soft">Accueil</a>
 
-        <div class="relative group">
-          <button class="text-slate-600 hover:text-slate-900 transition-soft">Services ▾</button>
-          <div class="absolute left-0 top-full hidden group-hover:block bg-white border border-slate-200 rounded-xl shadow-sm p-3 w-56">
+        <details class="relative">
+          <summary class="cursor-pointer list-none text-slate-600 hover:text-slate-900 transition-soft">
+            Services ▾
+          </summary>
+          <div class="absolute left-0 top-full mt-2 bg-white border border-slate-200 rounded-xl shadow-sm p-3 w-56 z-50">
             <a href="#assistance-distance" class="block px-3 py-2 rounded-lg hover:bg-mint-50">Assistance à distance</a>
             <a href="#domicile" class="block px-3 py-2 rounded-lg hover:bg-mint-50">À domicile / sur site</a>
             <a href="#cours" class="block px-3 py-2 rounded-lg hover:bg-mint-50">Cours personnalisés</a>
             <a href="#organisation" class="block px-3 py-2 rounded-lg hover:bg-mint-50">Organisation numérique</a>
           </div>
-        </div>
+        </details>
 
-        <div class="relative group">
-          <button class="text-slate-600 hover:text-slate-900 transition-soft">Formations ▾</button>
-          <div class="absolute left-0 top-full hidden group-hover:block bg-white border border-slate-200 rounded-xl shadow-sm p-3 w-72">
+        <details class="relative">
+          <summary class="cursor-pointer list-none text-slate-600 hover:text-slate-900 transition-soft">
+            Formations ▾
+          </summary>
+          <div class="absolute left-0 top-full mt-2 bg-white border border-slate-200 rounded-xl shadow-sm p-3 w-72 z-50">
             <a href="#ia" class="block px-3 py-2 rounded-lg hover:bg-mint-50">Intelligence artificielle</a>
             <a href="#informatique" class="block px-3 py-2 rounded-lg hover:bg-mint-50">Informatique</a>
             <a href="#smartphone" class="block px-3 py-2 rounded-lg hover:bg-mint-50">Smartphone</a>
@@ -69,7 +77,7 @@
             <a href="#creation" class="block px-3 py-2 rounded-lg hover:bg-mint-50">Création numérique</a>
             <a href="#autonomie" class="block px-3 py-2 rounded-lg hover:bg-mint-50">Autonomie numérique</a>
           </div>
-        </div>
+        </details>
 
         <a href="#contact" class="text-slate-600 hover:text-slate-900 transition-soft">Contact</a>
         <a href="index-en.html" class="text-slate-600 hover:text-slate-900 transition-soft">EN</a>
