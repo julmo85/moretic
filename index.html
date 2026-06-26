@@ -3,33 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>MoreTIC — Dépannage et cours informatiques à Fribourg</title>
-<meta name="description" content="Aide informatique, cours et assistance à Fribourg — simples, flexibles et sans stress.">
-<!-- SEO + Open Graph + Social meta -->
-<link rel="canonical" href="https://moretic.ch/">
-<link rel="alternate" hreflang="fr" href="https://moretic.ch/">
-<link rel="alternate" hreflang="en" href="https://moretic.ch/index-en.html">
-<link rel="alternate" hreflang="x-default" href="https://moretic.ch/">
-
-<!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="MoreTIC">
-<meta property="og:title" content="MoreTIC — Dépannage et cours informatiques à Fribourg">
-<meta property="og:description" content="Aide informatique, cours et assistance à Fribourg — simples, flexibles et sans stress.">
-<meta property="og:url" content="https://moretic.ch/">
-<meta property="og:image" content="https://moretic.ch/og-cover.jpg">
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="MoreTIC — Dépannage et cours informatiques à Fribourg">
-<meta name="twitter:description" content="Aide informatique, cours et assistance à Fribourg — simples, flexibles et sans stress.">
-<meta name="twitter:image" content="https://moretic.ch/og-cover.jpg">
-
-<!-- Performance -->
-<link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
-
-<!-- Sécurité : forcer le HTTPS sur les ressources -->
-<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  <meta name="description" content="Aide informatique, cours et assistance à Fribourg — simples, flexibles et sans stress." />
 
   <link rel="icon" href="/favicon.ico" />
 
@@ -50,6 +26,7 @@
       }
     }
   </script>
+
   <style>
     @media (prefers-reduced-motion: no-preference) {
       .hover-float:hover { transform: translateY(-2px); }
@@ -57,38 +34,31 @@
     }
   </style>
 </head>
+
 <body class="bg-gradient-to-b from-mint-50 to-white text-slate-800 antialiased">
-  <!-- Header -->
   <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-mint-100">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       <a href="#" class="flex items-center gap-3 group">
-        <!-- LOGO: vert sur fond blanc + bordure gris dauphin -->
         <div class="h-9 px-2 rounded-xl bg-white text-mint-600 inline-flex items-center justify-center font-bold border border-dolphin shadow-sm transition-soft tracking-[0.06em]">MTIC</div>
         <div>
           <span class="block font-semibold leading-tight">MoreTIC</span>
           <span class="block text-xs text-slate-500 -mt-1">Informatique tranquille</span>
         </div>
       </a>
+
       <nav class="hidden md:flex items-center gap-6 text-sm">
         <a href="#services" class="text-slate-600 hover:text-slate-900 transition-soft">Services</a>
         <a href="#entraide" class="text-slate-600 hover:text-slate-900 transition-soft">Entraide</a>
-        <a href="#tarifs" class="text-slate-600 hover:text-slate-900 transition-soft">Tarifs</a>
-        <a href="#contact" class="text-slate-600 hover:text-slate-900 transition-soft">Contact</a><a href="index-en.html" class="text-slate-600 hover:text-slate-900 transition-soft">EN</a>
-
+        <a href="#contact" class="text-slate-600 hover:text-slate-900 transition-soft">Contact</a>
+        <a href="index-en.html" class="text-slate-600 hover:text-slate-900 transition-soft">EN</a>
       </nav>
+
       <a href="https://wa.me/41768220051" target="_blank" class="inline-flex items-center gap-2 rounded-xl bg-mint-600 text-white px-4 py-2 text-sm font-medium shadow-sm hover:bg-mint-700 hover:shadow transition-soft hover-float">
         <span>Demander un coup de main</span>
       </a>
-      <!-- Mobile language switch (visible only < md) -->
-<a href="/index-en.html" lang="en" aria-label="Switch to English"
-   class="md:hidden inline-flex items-center rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 transition-soft ml-2">
-  EN
-</a>
-
     </div>
   </header>
 
-  <!-- HERO -->
   <section class="relative">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-24 grid lg:grid-cols-2 gap-10 items-center">
       <div>
@@ -96,33 +66,44 @@
           Informatique sans stress.
           <span class="block text-mint-700">De l'entraide, pas du jargon.</span>
         </h1>
-        <p class="mt-5 text-lg text-slate-600 max-w-xl">On prend le temps, on explique, on s'adapte. Vous restez aux commandes.</p>
+
+        <p class="mt-5 text-lg text-slate-600 max-w-xl">
+          On prend le temps, on explique, on s'adapte. Vous restez aux commandes.
+        </p>
+
         <div class="mt-8 flex flex-wrap items-center gap-4">
           <a href="#services" class="rounded-xl bg-slate-900 text-white px-5 py-3 text-sm font-medium shadow-sm hover:shadow hover-float transition-soft">Découvrir les services</a>
           <a href="#entraide" class="rounded-xl border border-slate-300 text-slate-700 px-5 py-3 text-sm font-medium hover:bg-white hover:shadow-sm transition-soft">Esprit d'entraide</a>
         </div>
+
         <div class="mt-6 flex items-center gap-4 text-sm text-slate-500">
-          <div class="flex items-center gap-2"><span class="h-2.5 w-2.5 rounded-full bg-mint-500"></span> Flexible — sur place ou à distance</div>
+          <div class="flex items-center gap-2">
+            <span class="h-2.5 w-2.5 rounded-full bg-mint-500"></span>
+            Flexible — sur place ou à distance
+          </div>
           <div class="hidden sm:block">•</div>
           <div>Français / Anglais</div>
         </div>
       </div>
-      <!-- Illustration compacte avec cartes uniformes (4 cartes même taille) -->
+
       <div class="relative">
         <div class="rounded-2xl bg-white shadow-sm ring-1 ring-mint-100 p-4">
           <div class="grid grid-cols-2 grid-rows-2 gap-3 h-full">
             <div class="rounded-xl bg-mint-100 p-3 flex flex-col justify-center">
               <p class="text-sm font-medium text-mint-800 leading-tight">Accompagnement à domicile</p>
-              <p class="text-xs text-mint-900/70 leading-snug mt-1">Installation PC, Wi‑Fi, sauvegardes… calmement.</p>
+              <p class="text-xs text-mint-900/70 leading-snug mt-1">Installation PC, Wi-Fi, sauvegardes… calmement.</p>
             </div>
+
             <div class="rounded-xl bg-slate-100 p-3 flex flex-col justify-center">
               <p class="text-sm font-medium text-slate-700 leading-tight">Assistance à distance</p>
               <p class="text-xs text-slate-600 leading-snug mt-1">Quand vous voulez, par étapes.</p>
             </div>
+
             <div class="rounded-xl bg-slate-100 p-3 flex flex-col justify-center">
               <p class="text-sm font-medium text-slate-700 leading-tight">Cours sur mesure</p>
               <p class="text-xs text-slate-600 leading-snug mt-1">Rythme doux, objectifs clairs.</p>
             </div>
+
             <div class="rounded-xl bg-mint-50 border border-mint-100 p-3 flex flex-col justify-center">
               <p class="text-sm font-medium text-mint-900 leading-tight">Esprit communauté</p>
               <p class="text-xs text-mint-900/70 leading-snug mt-1">Tips, fiches mémo, petites victoires partagées.</p>
@@ -133,33 +114,43 @@
     </div>
   </section>
 
-  <!-- SERVICES -->
   <section id="services" class="py-14 lg:py-20 bg-white">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">Ce que je fais (simple et flexible)</h2>
-      <p class="mt-3 text-slate-600 max-w-2xl">Choisissez un point de départ. On ajuste ensuite selon vos besoins — sans pression.</p>
+      <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">Ce que je fais</h2>
+      <p class="mt-3 text-slate-600 max-w-2xl">
+        Choisissez un point de départ. On ajuste ensuite selon vos besoins — sans pression.
+      </p>
+
       <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <article class="rounded-2xl border border-slate-200 p-6 bg-slate-50 hover:shadow-sm transition-soft hover-float">
           <h3 class="font-semibold text-slate-900">Assistance à distance</h3>
-          <p class="mt-2 text-sm text-slate-600">Prise en main sécurisée, résolution pas à pas, avec explications simples.</p>
+          <p class="mt-2 text-sm text-slate-600">
+            Prise en main sécurisée, résolution pas à pas, avec explications simples.
+          </p>
           <ul class="mt-3 text-sm text-slate-600 list-disc list-inside">
             <li>Petits bugs Windows / Mac</li>
             <li>Paramètres Android / iPhone</li>
             <li>Nettoyage et sauvegardes</li>
           </ul>
         </article>
+
         <article class="rounded-2xl border border-slate-200 p-6 bg-slate-50 hover:shadow-sm transition-soft hover-float">
           <h3 class="font-semibold text-slate-900">À domicile / sur site</h3>
-          <p class="mt-2 text-sm text-slate-600">Installation de matériel, Wi‑Fi fiable, réorganisation zen de votre espace numérique.</p>
+          <p class="mt-2 text-sm text-slate-600">
+            Installation de matériel, Wi-Fi fiable, réorganisation tranquille de votre espace numérique.
+          </p>
           <ul class="mt-3 text-sm text-slate-600 list-disc list-inside">
             <li>PC, imprimantes, réseau</li>
-            <li>Fibre/routeur, TV connectées</li>
+            <li>Fibre, routeur, TV connectées</li>
             <li>Conseils achats</li>
           </ul>
         </article>
+
         <article class="rounded-2xl border border-slate-200 p-6 bg-slate-50 hover:shadow-sm transition-soft hover-float">
           <h3 class="font-semibold text-slate-900">Cours personnalisés</h3>
-          <p class="mt-2 text-sm text-slate-600">Pas de jargon. Des objectifs concrets, votre rythme, vos appareils.</p>
+          <p class="mt-2 text-sm text-slate-600">
+            Pas de jargon. Des objectifs concrets, votre rythme, vos appareils.
+          </p>
           <ul class="mt-3 text-sm text-slate-600 list-disc list-inside">
             <li>Premiers pas / remise à niveau</li>
             <li>Sécurité en ligne</li>
@@ -170,92 +161,82 @@
     </div>
   </section>
 
-  <!-- ENTRAIDE -->
   <section id="entraide" class="py-14 lg:py-20 bg-gradient-to-b from-white to-mint-50">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="lg:flex lg:items-end lg:justify-between">
         <div>
           <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">L'esprit d'entraide</h2>
-          <p class="mt-3 text-slate-600 max-w-2xl">On construit la confiance par la clarté. Vous comprenez, vous décidez. Et vous repartez avec un mémo simple.</p>
+          <p class="mt-3 text-slate-600 max-w-2xl">
+            On construit la confiance par la clarté. Vous comprenez, vous décidez. Et vous repartez avec un mémo simple.
+          </p>
         </div>
+
         <div class="mt-6 lg:mt-0">
-          <a href="#contact" class="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 transition-soft hover-float">Demander un premier échange</a>
-        </div>
-      </div>
-
-      <div class="mt-8 grid lg:grid-cols-3 gap-6">
-        <div class="rounded-2xl border border-mint-200 bg-white p-6">
-          <p class="text-sm text-slate-600">« Explications limpides, zéro pression. J'ai enfin osé toucher aux réglages sans peur. »</p>
-          <p class="mt-3 text-xs text-slate-500">— Témoignage client</p>
-        </div>
-        <div class="rounded-2xl border border-mint-200 bg-white p-6">
-          <p class="text-sm text-slate-600">« On a fait le tri ensemble. Maintenant tout est rangé et sauvegardé. Respire. »</p>
-          <p class="mt-3 text-xs text-slate-500">— Témoignage client</p>
-        </div>
-        <div class="rounded-2xl border border-mint-200 bg-white p-6">
-          <p class="text-sm text-slate-600">« Gentil, patient et efficace. J'ai reçu une fiche mémo pour ne pas oublier. »</p>
-          <p class="mt-3 text-xs text-slate-500">— Témoignage client</p>
+          <a href="#contact" class="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 transition-soft hover-float">
+            Demander un premier échange
+          </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- TARIFS -->
-  <section id="tarifs" class="py-14 lg:py-20 bg-white">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">Tarifs clairs</h2>
-      <p class="mt-3 text-slate-600 max-w-2xl">Transparents, sans surprise. Tarif réduit possible pour les situations particulières.</p>
-      <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="rounded-2xl border border-slate-200 p-6 bg-slate-50">
-          <h3 class="font-semibold text-slate-900">Assistance à distance</h3>
-          <p class="mt-2 text-sm text-slate-600">Facturation au quart d'heure après le premier 30 min.</p>
-          <p class="mt-4 text-3xl font-extrabold text-slate-900">CHF 60<span class="text-base font-normal text-slate-600"> / h</span></p>
-        </div>
-        <div class="rounded-2xl border border-mint-300 p-6 bg-white ring-2 ring-mint-200">
-          <h3 class="font-semibold text-slate-900">À domicile (Fribourg)</h3>
-          <p class="mt-2 text-sm text-slate-600">Déplacement inclus en ville. Autour: petit forfait.</p>
-          <p class="mt-4 text-3xl font-extrabold text-slate-900">CHF 80<span class="text-base font-normal text-slate-600"> / h</span></p>
-        </div>
-        <div class="rounded-2xl border border-slate-200 p-6 bg-slate-50">
-          <h3 class="font-semibold text-slate-900">Cours personnalisés</h3>
-          <p class="mt-2 text-sm text-slate-600">En solo ou duo. Carnet de suivi inclus.</p>
-          <p class="mt-4 text-3xl font-extrabold text-slate-900">CHF 70<span class="text-base font-normal text-slate-600"> / h</span></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
   <section id="contact" class="py-14 lg:py-20 bg-gradient-to-b from-mint-50 to-white">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-2 gap-10 items-start">
         <div>
           <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">On fait connaissance ?</h2>
-          <p class="mt-3 text-slate-600">Un message court suffit. Dites ce que vous voulez accomplir, où vous êtes, et vos disponibilités.</p>
+          <p class="mt-3 text-slate-600">
+            Un message court suffit. Dites ce que vous voulez accomplir, où vous êtes, et vos disponibilités.
+          </p>
+
           <ul class="mt-6 space-y-3 text-slate-700">
-            <li class="flex items-center gap-3"><span class="h-2.5 w-2.5 rounded-full bg-mint-500"></span> WhatsApp / Téléphone : <a class="underline hover:no-underline" href="tel:+41768220051">+41 76 822 00 51</a></li>
-            <li class="flex items-center gap-3"><span class="h-2.5 w-2.5 rounded-full bg-mint-500"></span> E‑mail : <a class="underline hover:no-underline" href="mailto:contact@moretic.ch">contact@moretic.ch</a></li>
-            <li class="flex items-center gap-3"><span class="h-2.5 w-2.5 rounded-full bg-mint-500"></span> Fribourg et alentours — interventions à domicile</li>
+            <li class="flex items-center gap-3">
+              <span class="h-2.5 w-2.5 rounded-full bg-mint-500"></span>
+              WhatsApp / Téléphone :
+              <a class="underline hover:no-underline" href="tel:+41768220051">+41 76 822 00 51</a>
+            </li>
+
+            <li class="flex items-center gap-3">
+              <span class="h-2.5 w-2.5 rounded-full bg-mint-500"></span>
+              E-mail :
+              <a class="underline hover:no-underline" href="mailto:contact@moretic.ch">contact@moretic.ch</a>
+            </li>
+
+            <li class="flex items-center gap-3">
+              <span class="h-2.5 w-2.5 rounded-full bg-mint-500"></span>
+              Fribourg et alentours — interventions à domicile
+            </li>
           </ul>
+
           <div class="mt-4">
-            <a href="https://wa.me/41768220051" target="_blank" class="inline-flex items-center gap-2 rounded-xl border border-mint-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 transition-soft hover-float">Écrire sur WhatsApp</a>
+            <a href="https://wa.me/41768220051" target="_blank" class="inline-flex items-center gap-2 rounded-xl border border-mint-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 transition-soft hover-float">
+              Écrire sur WhatsApp
+            </a>
           </div>
         </div>
+
         <form class="rounded-2xl border border-mint-200 bg-white p-6 shadow-sm" onsubmit="alert('Merci ! Votre message a été préparé dans votre client mail.'); return false;">
           <label class="block text-sm font-medium text-slate-700">Votre message</label>
+
           <textarea class="mt-2 w-full rounded-xl border border-slate-300 p-3 focus:outline-none focus:ring-4 focus:ring-mint-200" rows="5" placeholder="Bonjour Julien, j'aurais besoin d'un coup de main pour…"></textarea>
+
           <div class="mt-4 grid sm:grid-cols-2 gap-4">
             <input type="text" placeholder="Nom" class="w-full rounded-xl border border-slate-300 p-3 focus:outline-none focus:ring-4 focus:ring-mint-200" />
-            <input type="email" placeholder="E‑mail" class="w-full rounded-xl border border-slate-300 p-3 focus:outline-none focus:ring-4 focus:ring-mint-200" />
+            <input type="email" placeholder="E-mail" class="w-full rounded-xl border border-slate-300 p-3 focus:outline-none focus:ring-4 focus:ring-mint-200" />
           </div>
-          <button type="button" onclick="window.location='mailto:contact@moretic.ch?subject=Demande%20d\'aide%20MoreTIC&body=Bonjour%20Julien%2C%20j\'aurais%20besoin%20d\'un%20coup%20de%20main%20pour…';" class="mt-6 w-full rounded-xl bg-slate-900 text-white px-5 py-3 text-sm font-medium shadow-sm hover:shadow hover-float transition-soft">Envoyer par e‑mail</button>
-          <p class="mt-3 text-xs text-slate-500">Formulaire simple côté client pour rester léger. Pas de collecte cachée.</p>
+
+          <button type="button" onclick="window.location='mailto:contact@moretic.ch?subject=Demande%20d%27aide%20MoreTIC&body=Bonjour%20Julien%2C%20j%27aurais%20besoin%20d%27un%20coup%20de%20main%20pour…';" class="mt-6 w-full rounded-xl bg-slate-900 text-white px-5 py-3 text-sm font-medium shadow-sm hover:shadow hover-float transition-soft">
+            Envoyer par e-mail
+          </button>
+
+          <p class="mt-3 text-xs text-slate-500">
+            Formulaire simple côté client pour rester léger. Pas de collecte cachée.
+          </p>
         </form>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer class="py-8 border-t border-mint-100 text-center text-sm text-slate-500">
     <p>© <span id="year"></span> MoreTIC — Informatique tranquille • Fribourg</p>
   </footer>
