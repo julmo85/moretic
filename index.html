@@ -6,9 +6,26 @@
 
   <title>MoreTIC — Aide informatique, formations IA et autonomie numérique à Fribourg</title>
   <meta name="description" content="Aide informatique, cours, formations IA et accompagnement numérique à Fribourg — simple, flexible et sans stress." />
+  <link rel="canonical" href="https://moretic.ch/" />
+  <link rel="alternate" hreflang="fr" href="https://moretic.ch/" />
+  <link rel="alternate" hreflang="en" href="https://moretic.ch/index-en.html" />
+  <link rel="alternate" hreflang="x-default" href="https://moretic.ch/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="MoreTIC" />
+  <meta property="og:title" content="MoreTIC — Aide informatique et formations numériques à Fribourg" />
+  <meta property="og:description" content="Aide informatique, formations IA et accompagnement numérique à Fribourg — simple, flexible et sans stress." />
+  <meta property="og:url" content="https://moretic.ch/" />
+  <meta property="og:image" content="https://moretic.ch/og-cover.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="MoreTIC — Aide informatique et formations numériques à Fribourg" />
+  <meta name="twitter:description" content="Aide informatique, formations IA et accompagnement numérique à Fribourg — simple, flexible et sans stress." />
+  <meta name="twitter:image" content="https://moretic.ch/og-cover.jpg" />
 
   <link rel="icon" href="/favicon.ico" />
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin />
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -17,9 +34,16 @@
         extend: {
           colors: {
             mint: {
-              50: '#f3fbf7', 100: '#dff7ec', 200: '#bff0d9', 300: '#9ae3c2',
-              400: '#6fd4a6', 500: '#4cc08d', 600: '#36a77a', 700: '#2e8665',
-              800: '#276a54', 900: '#214f43'
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              200: '#bbf7d0',
+              300: '#86efac',
+              400: '#4ade80',
+              500: '#15803d',
+              600: '#166534',
+              700: '#14532d',
+              800: '#052e16',
+              900: '#052e16'
             },
             dolphin: '#c5c8c9'
           }
@@ -41,17 +65,23 @@
 </head>
 
 <body class="bg-gradient-to-b from-mint-50 to-white text-slate-800 antialiased">
+  <a href="#accueil" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-slate-900 focus:shadow">
+    Aller au contenu principal
+  </a>
+
   <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-mint-100">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-      <a href="#accueil" class="flex items-center gap-3 group">
-        <div class="h-9 px-2 rounded-xl bg-white text-mint-600 inline-flex items-center justify-center font-bold border border-dolphin shadow-sm transition-soft tracking-[0.06em]">MTIC</div>
+      <a href="#accueil" class="flex items-center gap-3 group" aria-label="Accueil MoreTIC">
+        <div class="h-9 px-2 rounded-xl bg-white text-mint-600 inline-flex items-center justify-center font-bold border border-dolphin shadow-sm transition-soft tracking-[0.06em]">
+          MTIC
+        </div>
         <div>
           <span class="block font-semibold leading-tight">MoreTIC</span>
           <span class="block text-xs text-slate-500 -mt-1">Informatique tranquille</span>
         </div>
       </a>
 
-      <nav class="hidden lg:flex items-center gap-6 text-sm">
+      <nav class="hidden lg:flex items-center gap-6 text-sm" aria-label="Navigation principale">
         <a href="#accueil" class="text-slate-600 hover:text-slate-900 transition-soft">Accueil</a>
 
         <details class="relative">
@@ -84,11 +114,11 @@
       </nav>
 
       <div class="flex items-center gap-3">
-        <a href="index-en.html" class="inline-flex items-center justify-center rounded-xl border border-dolphin bg-white px-3 py-2 text-sm font-medium text-mint-700 hover:bg-mint-50 transition-soft">
+        <a href="index-en.html" class="inline-flex items-center justify-center rounded-xl border border-dolphin bg-white px-3 py-2 text-sm font-medium text-mint-700 hover:bg-mint-50 transition-soft" lang="en" hreflang="en">
           EN
         </a>
 
-        <a href="https://wa.me/41768220051" target="_blank" class="inline-flex items-center gap-2 rounded-xl bg-mint-600 text-white px-4 py-2 text-sm font-medium shadow-sm hover:bg-mint-700 hover:shadow transition-soft hover-float">
+        <a href="https://wa.me/41768220051" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl bg-mint-600 text-white px-4 py-2 text-sm font-medium shadow-sm hover:bg-mint-700 hover:shadow transition-soft hover-float">
           Demander un coup de main
         </a>
       </div>
@@ -101,7 +131,7 @@
         <div>
           <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900">
             Informatique sans stress.
-            <span class="block text-mint-700">De l'entraide, pas du jargon.</span>
+            <span class="block text-mint-700">De l’entraide, pas du jargon.</span>
           </h1>
 
           <p class="mt-5 text-lg text-slate-600 max-w-xl">
@@ -113,12 +143,12 @@
             <a href="#formations" class="rounded-xl border border-slate-300 text-slate-700 px-5 py-3 text-sm font-medium hover:bg-white hover:shadow-sm transition-soft">Voir les formations</a>
           </div>
 
-          <div class="mt-6 flex items-center gap-4 text-sm text-slate-500">
+          <div class="mt-6 flex flex-wrap items-center gap-4 text-sm text-slate-500">
             <div class="flex items-center gap-2">
-              <span class="h-2.5 w-2.5 rounded-full bg-mint-500"></span>
+              <span class="h-2.5 w-2.5 rounded-full bg-mint-500" aria-hidden="true"></span>
               Flexible — sur place ou à distance
             </div>
-            <div class="hidden sm:block">•</div>
+            <div class="hidden sm:block" aria-hidden="true">•</div>
             <div>Français / Anglais</div>
           </div>
         </div>
@@ -128,7 +158,7 @@
             <div class="grid grid-cols-2 grid-rows-2 gap-3 h-full">
               <div class="rounded-xl bg-mint-100 p-3 flex flex-col justify-center">
                 <p class="text-sm font-medium text-mint-800 leading-tight">Accompagnement à domicile</p>
-                <p class="text-xs text-mint-900/70 leading-snug mt-1">Installation PC, Wi-Fi, sauvegardes… calmement.</p>
+                <p class="text-xs text-mint-900/80 leading-snug mt-1">Installation PC, Wi-Fi, sauvegardes… calmement.</p>
               </div>
 
               <div class="rounded-xl bg-slate-100 p-3 flex flex-col justify-center">
@@ -143,7 +173,7 @@
 
               <div class="rounded-xl bg-mint-50 border border-mint-100 p-3 flex flex-col justify-center">
                 <p class="text-sm font-medium text-mint-900 leading-tight">Autonomie numérique</p>
-                <p class="text-xs text-mint-900/70 leading-snug mt-1">Comprendre, décider, refaire seul.</p>
+                <p class="text-xs text-mint-900/80 leading-snug mt-1">Comprendre, décider, refaire seul.</p>
               </div>
             </div>
           </div>
@@ -303,38 +333,38 @@
 
             <ul class="mt-6 space-y-3 text-slate-700">
               <li class="flex items-center gap-3">
-                <span class="h-2.5 w-2.5 rounded-full bg-mint-500"></span>
+                <span class="h-2.5 w-2.5 rounded-full bg-mint-500" aria-hidden="true"></span>
                 WhatsApp / Téléphone :
                 <a class="underline hover:no-underline" href="tel:+41768220051">+41 76 822 00 51</a>
               </li>
 
               <li class="flex items-center gap-3">
-                <span class="h-2.5 w-2.5 rounded-full bg-mint-500"></span>
+                <span class="h-2.5 w-2.5 rounded-full bg-mint-500" aria-hidden="true"></span>
                 E-mail :
                 <a class="underline hover:no-underline" href="mailto:contact@moretic.ch">contact@moretic.ch</a>
               </li>
 
               <li class="flex items-center gap-3">
-                <span class="h-2.5 w-2.5 rounded-full bg-mint-500"></span>
+                <span class="h-2.5 w-2.5 rounded-full bg-mint-500" aria-hidden="true"></span>
                 Fribourg et alentours — interventions à domicile
               </li>
             </ul>
 
             <div class="mt-4">
-              <a href="https://wa.me/41768220051" target="_blank" class="inline-flex items-center gap-2 rounded-xl border border-mint-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 transition-soft hover-float">
+              <a href="https://wa.me/41768220051" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl border border-mint-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 transition-soft hover-float">
                 Écrire sur WhatsApp
               </a>
             </div>
           </div>
 
           <form class="rounded-2xl border border-mint-200 bg-white p-6 shadow-sm" onsubmit="alert('Merci ! Votre message a été préparé dans votre client mail.'); return false;">
-            <label class="block text-sm font-medium text-slate-700">Votre message</label>
+            <label class="block text-sm font-medium text-slate-700" for="message">Votre message</label>
 
-            <textarea class="mt-2 w-full rounded-xl border border-slate-300 p-3 focus:outline-none focus:ring-4 focus:ring-mint-200" rows="5" placeholder="Bonjour Julien, j'aurais besoin d'un coup de main pour…"></textarea>
+            <textarea id="message" class="mt-2 w-full rounded-xl border border-slate-300 p-3 focus:outline-none focus:ring-4 focus:ring-mint-200" rows="5" placeholder="Bonjour Julien, j'aurais besoin d'un coup de main pour…"></textarea>
 
             <div class="mt-4 grid sm:grid-cols-2 gap-4">
-              <input type="text" placeholder="Nom" class="w-full rounded-xl border border-slate-300 p-3 focus:outline-none focus:ring-4 focus:ring-mint-200" />
-              <input type="email" placeholder="E-mail" class="w-full rounded-xl border border-slate-300 p-3 focus:outline-none focus:ring-4 focus:ring-mint-200" />
+              <input type="text" placeholder="Nom" aria-label="Nom" class="w-full rounded-xl border border-slate-300 p-3 focus:outline-none focus:ring-4 focus:ring-mint-200" />
+              <input type="email" placeholder="E-mail" aria-label="E-mail" class="w-full rounded-xl border border-slate-300 p-3 focus:outline-none focus:ring-4 focus:ring-mint-200" />
             </div>
 
             <button type="button" onclick="window.location='mailto:contact@moretic.ch?subject=Demande%20d%27aide%20MoreTIC&body=Bonjour%20Julien%2C%20j%27aurais%20besoin%20d%27un%20coup%20de%20main%20pour…';" class="mt-6 w-full rounded-xl bg-slate-900 text-white px-5 py-3 text-sm font-medium shadow-sm hover:shadow hover-float transition-soft">
