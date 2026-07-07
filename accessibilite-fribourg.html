@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Accessibilité à Fribourg | Autonomie sans frontières architecturales | MoreTIC</title>
+
+  <meta
+    name="description"
+    content="Autonomie sans frontières architecturales est un projet citoyen porté par MoreTIC pour mieux documenter l’accessibilité réelle à Fribourg : trajets, WC accessibles, parkings PMR, lieux culturels, obstacles et fiches pilotes."
+  />
+
+  <meta name="author" content="MoreTIC - Julien Moret" />
+  <meta name="robots" content="index, follow" />
+
+  <meta property="og:title" content="Accessibilité à Fribourg | Autonomie sans frontières architecturales" />
+  <meta
+    property="og:description"
+    content="Un projet citoyen pour mieux documenter l’accessibilité réelle à Fribourg : arriver, entrer, circuler, se reposer, utiliser les WC, anticiper les obstacles et participer."
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.moretic.ch/accessibilite-fribourg.html" />
+  <meta property="og:image" content="https://www.moretic.ch/og-cover.jpg" />
+
+  <link rel="icon" href="favicon.ico" />
+
+  <style>
+    :root {
+      --bg: #f7f8fb;
+      --surface: #ffffff;
+      --text: #1f2937;
+      --muted: #4b5563;
+      --accent: #2563eb;
+      --accent-dark: #1d4ed8;
+      --border: #d1d5db;
+      --soft: #eef2ff;
+      --warning: #fff7ed;
+      --success: #ecfdf5;
+      --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      --radius: 18px;
+      --max: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 18px;
+    }
+
+    a {
+      color: var(--accent-dark);
+      text-decoration-thickness: 2px;
+      text-underline-offset: 3px;
+    }
+
+    a:hover,
+    a:focus {
+      color: #0f172a;
+      outline: none;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 4px;
+      border-radius: 6px;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: 1rem;
+      background: #ffffff;
+      color: #111827;
+      padding: 0.75rem 1rem;
+      border: 2px solid var(--accent);
+      z-index: 1000;
+    }
+
+    .skip-link:focus {
+      left: 1rem;
+    }
+
+    header {
+      background:
+        linear-gradient(135deg, rgba(37, 99, 235, 0.94), rgba(15, 23, 42, 0.94)),
+        radial-gradient(circle at top left, rgba(255,255,255,0.35), transparent 35%);
+      color: #ffffff;
+      padding: 2rem 1rem 3rem;
+    }
+
+    .container {
+      width: min(100% - 2rem, var(--max));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      font-size: 1.15rem;
+    }
+
+    .brand a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      padding: 0;
+      margin: 0;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      text-decoration: underline;
+      color: #ffffff;
+    }
+
+    .hero {
+      max-width: 900px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      margin: 0 0 1rem;
+      font-size: clamp(2.2rem, 6vw, 4.6rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+
+    .subtitle {
+      font-size: clamp(1.15rem, 2vw, 1.5rem);
+      max-width: 760px;
+      margin-bottom: 1.5rem;
+      color: #e5e7eb;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .button {
+      display: inline-block;
+      background: #ffffff;
+      color: #111827;
+      padding: 0.85rem 1.15rem;
+      border-radius: 999px;
+      font-weight: 800;
+      text-decoration: none;
+      border: 2px solid #ffffff;
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.7);
+    }
+
+    .button:hover,
+    .button:focus {
+      background: #f3f4f6;
+      color: #111827;
+    }
+
+    .button.secondary:hover,
+    .button.secondary:focus {
+      background: #ffffff;
+      color: #111827;
+    }
+
+    main {
+      padding: 2.5rem 0;
+    }
+
+    section {
+      margin: 0 0 2rem;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: clamp(1.2rem, 3vw, 2rem);
+      box-shadow: var(--shadow);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1rem;
+    }
+
+    .col-6 {
+      grid-column: span 6;
+    }
+
+    .col-4 {
+      grid-column: span 4;
+    }
+
+    .col-12 {
+      grid-column: span 12;
+    }
+
+    @media (max-width: 800px) {
+      .col-6,
+      .col-4 {
+        grid-column: span 12;
+      }
+
+      body {
+        font-size: 17px;
+      }
+
+      nav ul {
+        gap: 0.7rem;
+      }
+    }
+
+    h2 {
+      margin-top: 0;
+      font-size: clamp(1.7rem, 3vw, 2.3rem);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+    }
+
+    h3 {
+      margin-top: 0;
+      font-size: 1.25rem;
+    }
+
+    p {
+      margin: 0 0 1rem;
+    }
+
+    ul,
+    ol {
+      padding-left: 1.3rem;
+    }
+
+    li {
+      margin-bottom: 0.45rem;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .highlight {
+      background: var(--soft);
+      border-left: 5px solid var(--accent);
+      padding: 1rem 1.2rem;
+      border-radius: 12px;
+      margin: 1rem 0;
+    }
+
+    .notice {
+      background: var(--warning);
+      border: 1px solid #fed7aa;
+      border-radius: var(--radius);
+      padding: 1.2rem;
+    }
+
+    .success {
+      background: var(--success);
+      border: 1px solid #bbf7d0;
+      border-radius: var(--radius);
+      padding: 1.2rem;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      padding: 0;
+      list-style: none;
+      margin-top: 1rem;
+    }
+
+    .tag-list li {
+      background: #eef2ff;
+      color: #1e3a8a;
+      border: 1px solid #c7d2fe;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .source-list {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .source-item {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem;
+      background: #ffffff;
+    }
+
+    .source-item h3 {
+      margin-bottom: 0.35rem;
+    }
+
+    .source-item p {
+      margin-bottom: 0.45rem;
+    }
+
+    footer {
+      background: #111827;
+      color: #e5e7eb;
+      padding: 2rem 1rem;
+      margin-top: 2rem;
+    }
+
+    footer a {
+      color: #ffffff;
+    }
+
+    .small {
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#contenu">Aller directement au contenu</a>
+
+  <header>
+    <div class="container">
+      <div class="topbar">
+        <div class="brand">
+          <a href="index.html">MoreTIC</a>
+        </div>
+
+        <nav aria-label="Navigation principale">
+          <ul>
+            <li><a href="#projet">Projet</a></li>
+            <li><a href="#fiches-pilotes">Fiches pilotes</a></li>
+            <li><a href="#sources">Sources</a></li>
+            <li><a href="#contribuer">Contribuer</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="hero">
+        <span class="eyebrow">Projet citoyen en construction</span>
+
+        <h1>Autonomie sans frontières architecturales</h1>
+
+        <p class="subtitle">
+          Un guide pratique terrain pour mieux documenter l’accessibilité réelle à Fribourg :
+          trajets, WC accessibles, parkings PMR, lieux culturels, obstacles, repos et informations utiles avant une sortie.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button" href="#fiches-pilotes">Voir les fiches pilotes prévues</a>
+          <a class="button secondary" href="#sources">Voir les sources identifiées</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <div class="container">
+
+      <section id="projet" class="card">
+        <h2>1. Idée générale</h2>
+
+        <p>
+          Le projet <strong>“Autonomie sans frontières architecturales”</strong> vise à mieux documenter
+          l’accessibilité réelle à Fribourg.
+        </p>
+
+        <p>
+          Il s’adresse d’abord aux personnes en situation de handicap ou à mobilité réduite,
+          mais il peut aussi être utile aux personnes âgées, aux proches aidants, aux accompagnants,
+          aux parents avec poussette, aux personnes temporairement blessées ou à toute personne qui a besoin
+          d’informations fiables pour se déplacer plus sereinement.
+        </p>
+
+        <p>
+          L’objectif n’est pas de remplacer les informations officielles existantes, mais de les compléter
+          avec une approche pratique, centrée sur les besoins concrets des personnes concernées.
+        </p>
+
+        <div class="highlight">
+          <p>
+            Une ville accessible ne se résume pas à une rampe ou à un pictogramme.
+            Il faut aussi pouvoir arriver, entrer, circuler, utiliser les toilettes, se reposer,
+            demander de l’aide, repartir et anticiper les obstacles.
+          </p>
+        </div>
+      </section>
+
+      <section class="grid" aria-label="Constat et objectif">
+        <div class="card col-6">
+          <h2>2. Constat</h2>
+
+          <p>
+            Aujourd’hui, certaines informations existent déjà, mais elles sont souvent dispersées,
+            incomplètes ou trop générales pour permettre à une personne de préparer une sortie sereinement.
+          </p>
+
+          <p>Pour préparer une sortie, une personne doit pouvoir savoir concrètement :</p>
+
+          <ul>
+            <li>comment arriver ;</li>
+            <li>où se parquer ;</li>
+            <li>quel arrêt de bus utiliser ;</li>
+            <li>s’il y a des pentes ou des pavés ;</li>
+            <li>comment entrer ;</li>
+            <li>s’il y a un ascenseur ;</li>
+            <li>où trouver des toilettes accessibles ;</li>
+            <li>où se reposer ;</li>
+            <li>qui contacter en cas de besoin ;</li>
+            <li>s’il existe un plan B en cas d’obstacle.</li>
+          </ul>
+        </div>
+
+        <div class="card col-6">
+          <h2>3. Ce que le projet apporte</h2>
+
+          <p>Le projet propose de :</p>
+
+          <ul>
+            <li>centraliser les informations utiles ;</li>
+            <li>identifier les lacunes pratiques ;</li>
+            <li>documenter quelques lieux et trajets concrets ;</li>
+            <li>distinguer les sources officielles, les observations de terrain et les éléments à vérifier ;</li>
+            <li>proposer des améliorations réalistes ;</li>
+            <li>encourager la contribution des personnes concernées ;</li>
+            <li>faciliter la collaboration entre associations, institutions, acteurs touristiques et autorités.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="fiches-pilotes" class="card">
+        <h2>4. Fiches pilotes prévues</h2>
+
+        <p>
+          Pour commencer de manière concrète et réaliste, le projet pourrait se concentrer sur
+          <strong>3 ou 4 fiches pilotes</strong>. Ces fiches permettraient de démontrer rapidement
+          l’utilité de l’approche, sans vouloir documenter toute la ville dès le départ.
+        </p>
+
+        <div class="grid">
+          <div class="col-6">
+            <h3>Fiche pilote 1</h3>
+            <p><strong>Trajet gare de Fribourg → centre-ville</strong></p>
+            <p class="muted">
+              Objectif : montrer si le trajet est réellement praticable, où sont les pentes,
+              les pavés, les passages difficiles, les arrêts utiles et les lieux de pause.
+            </p>
+          </div>
+
+          <div class="col-6">
+            <h3>Fiche pilote 2</h3>
+            <p><strong>WC public accessible</strong></p>
+            <p class="muted">
+              Objectif : vérifier l’emplacement, l’accès, les horaires, l’éventuelle clé Eurokey,
+              le chemin jusqu’aux toilettes et leur utilité réelle pendant une sortie.
+            </p>
+          </div>
+
+          <div class="col-6">
+            <h3>Fiche pilote 3</h3>
+            <p><strong>Parking PMR proche d’un lieu important</strong></p>
+            <p class="muted">
+              Objectif : documenter la place, la distance jusqu’au lieu, les pentes,
+              les pavés, l’accès au trottoir et les alternatives possibles.
+            </p>
+          </div>
+
+          <div class="col-6">
+            <h3>Fiche pilote 4</h3>
+            <p><strong>Musée ou lieu culturel fréquenté</strong></p>
+            <p class="muted">
+              Objectif : comparer les informations publiées avec les besoins réels :
+              entrée, circulation, ascenseur, toilettes, repos, contact, trajet et photos utiles.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>5. Format envisagé</h2>
+
+        <p>
+          Le projet pourrait d’abord prendre la forme d’un site web simple, accessible et évolutif.
+        </p>
+
+        <p>Ce site pourrait contenir :</p>
+
+        <ul>
+          <li>une page de présentation du projet ;</li>
+          <li>des fiches pratiques par lieu, trajet ou service ;</li>
+          <li>des fiches téléchargeables en PDF accessible ;</li>
+          <li>une liste de ressources officielles ;</li>
+          <li>un formulaire de contribution citoyenne ;</li>
+          <li>quelques fiches pilotes documentées ;</li>
+          <li>une carte simple dans une seconde étape.</li>
+        </ul>
+
+        <p>
+          À moyen terme, une carte légère pourrait être envisagée, éventuellement en lien avec des outils
+          existants comme OpenStreetMap, Wheelmap, Ginto ou d’autres plateformes d’accessibilité,
+          si cela est techniquement et humainement réaliste.
+        </p>
+
+        <p>
+          Le format des fiches serait conçu pour pouvoir être réutilisé, croisé ou adapté plus tard avec
+          d’autres plateformes ou données existantes : Ginto, Wheelmap, OpenStreetMap, données ouvertes de la Ville,
+          ressources touristiques ou informations associatives.
+        </p>
+      </section>
+
+      <section class="grid" aria-label="Contribution et gouvernance">
+        <div id="contribuer" class="card col-6">
+          <h2>6. Contribution citoyenne</h2>
+
+          <p>
+            Le projet pourrait permettre aux personnes concernées, proches, accompagnants, associations
+            ou usagers de transmettre des informations pratiques.
+          </p>
+
+          <p>Les contributions pourraient concerner :</p>
+
+          <ul>
+            <li>un obstacle ;</li>
+            <li>un lieu accessible ;</li>
+            <li>une information incorrecte ;</li>
+            <li>une information manquante ;</li>
+            <li>un WC accessible ;</li>
+            <li>un parking PMR ;</li>
+            <li>un trajet difficile ;</li>
+            <li>un ascenseur en panne ;</li>
+            <li>des travaux ou obstacles temporaires.</li>
+          </ul>
+
+          <p>
+            Les contributions devraient être modérées avant publication afin de rester factuelles,
+            respectueuses, utiles et juridiquement prudentes.
+          </p>
+        </div>
+
+        <div class="card col-6">
+          <h2>7. Durabilité et gouvernance</h2>
+
+          <p>
+            Pour que le projet reste utile dans le temps, il faut prévoir une forme de gouvernance simple.
+          </p>
+
+          <p>Plusieurs modèles sont possibles :</p>
+
+          <ul>
+            <li>projet indépendant et bénévole au départ ;</li>
+            <li>partenariat avec une association ;</li>
+            <li>petit comité citoyen de relecture ;</li>
+            <li>soutien ponctuel d’institutions ;</li>
+            <li>projet pilote financé ;</li>
+            <li>collaboration avec la Ville, Fribourg Tourisme ou des acteurs culturels.</li>
+          </ul>
+
+          <p>
+            La question centrale est : qui vérifie, met à jour, corrige et valide les informations
+            sur le long terme ?
+          </p>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>8. Accessibilité du guide lui-même</h2>
+
+        <p>
+          Le guide doit lui-même respecter les principes d’accessibilité.
+        </p>
+
+        <p>Le futur site devrait donc être pensé avec :</p>
+
+        <ul class="tag-list">
+          <li>bons contrastes</li>
+          <li>textes lisibles</li>
+          <li>navigation simple</li>
+          <li>compatibilité mobile</li>
+          <li>navigation clavier</li>
+          <li>images avec textes alternatifs</li>
+          <li>PDF accessibles</li>
+          <li>langage clair</li>
+          <li>chargement rapide</li>
+        </ul>
+      </section>
+
+      <section id="sources" class="card">
+        <h2>9. Sources existantes identifiées</h2>
+
+        <p>
+          Cette liste rassemble les ressources déjà repérées. Elle montre que de nombreuses informations
+          existent, mais qu’elles sont réparties entre plusieurs sites ou plateformes.
+        </p>
+
+        <div class="source-list">
+          <article class="source-item">
+            <h3>Fribourg Tourisme — Voyager avec un handicap</h3>
+            <p><a href="https://fribourg.ch/fr/fribourg/voyager-avec-un-handicap/">https://fribourg.ch/fr/fribourg/voyager-avec-un-handicap/</a></p>
+            <p class="muted">Base touristique officielle pour les informations générales.</p>
+          </article>
+
+          <article class="source-item">
+            <h3>Union fribourgeoise du Tourisme — Accessibilité touristique</h3>
+            <p><a href="https://fribourg.ch/fr/uft-ftv/accessibilite-touristique/">https://fribourg.ch/fr/uft-ftv/accessibilite-touristique/</a></p>
+            <p class="muted">Informations liées aux audits Pro Infirmis et à l’initiative OK:GO.</p>
+          </article>
+
+          <article class="source-item">
+            <h3>Ville de Fribourg — Accessibilité</h3>
+            <p><a href="https://www.ville-fribourg.ch/accessibilite">https://www.ville-fribourg.ch/accessibilite</a></p>
+            <p class="muted">Source locale importante pour l’accessibilité des infrastructures communales.</p>
+          </article>
+
+          <article class="source-item">
+            <h3>Ville de Fribourg — WC publics</h3>
+            <p><a href="https://www.ville-fribourg.ch/wc-publics">https://www.ville-fribourg.ch/wc-publics</a></p>
+            <p class="muted">Source prioritaire pour une fiche pilote sur les WC accessibles.</p>
+          </article>
+
+          <article class="source-item">
+            <h3>Places de parc pour personnes en situation de handicap</h3>
+            <p><a href="https://fribourg.ch/fr/fribourg/parkings/place-de-parc-pour-handicapes/">https://fribourg.ch/fr/fribourg/parkings/place-de-parc-pour-handicapes/</a></p>
+            <p><a href="https://www.ocn.ch/fr/conduire/autorisations/carte-de-stationnement-pour-personnes-mobilite-reduite">https://www.ocn.ch/fr/conduire/autorisations/carte-de-stationnement-pour-personnes-mobilite-reduite</a></p>
+            <p class="muted">Sources utiles pour les règles et fiches parking PMR.</p>
+          </article>
+
+          <article class="source-item">
+            <h3>TPF — Voyager avec un handicap</h3>
+            <p><a href="https://www.tpf.ch/fr/abos-et-billets/achat-et-conseil/voyager-avec-un-handicap">https://www.tpf.ch/fr/abos-et-billets/achat-et-conseil/voyager-avec-un-handicap</a></p>
+            <p class="muted">Source essentielle pour les transports publics fribourgeois.</p>
+          </article>
+
+          <article class="source-item">
+            <h3>CFF — Voyager avec une mobilité réduite</h3>
+            <p><a href="https://www.sbb.ch/fr/informations-voyages/besoins-individuels/voyager-mobilite-reduite.html">https://www.sbb.ch/fr/informations-voyages/besoins-individuels/voyager-mobilite-reduite.html</a></p>
+            <p class="muted">Source essentielle pour l’arrivée à Fribourg par train et l’assistance CFF.</p>
+          </article>
+
+          <article class="source-item">
+            <h3>Pro Infirmis — Données numériques d’accessibilité</h3>
+            <p><a href="https://www.proinfirmis.ch/fr/a-propos/prestations/donnees-numeriques-daccessibilite.html">https://www.proinfirmis.ch/fr/a-propos/prestations/donnees-numeriques-daccessibilite.html</a></p>
+            <p class="muted">Données d’accessibilité structurées et vérifiées.</p>
+          </article>
+
+          <article class="source-item">
+            <h3>OK:GO</h3>
+            <p><a href="https://www.stv-fst.ch/fr/durabilite/plate-forme-sur-la-durabilite/produits-et-services/okgo-initiative">https://www.stv-fst.ch/fr/durabilite/plate-forme-sur-la-durabilite/produits-et-services/okgo-initiative</a></p>
+            <p><a href="https://about.ginto.guide/okgo">https://about.ginto.guide/okgo</a></p>
+            <p class="muted">Initiative nationale pour les informations d’accessibilité dans le tourisme.</p>
+          </article>
+
+          <article class="source-item">
+            <h3>Ginto</h3>
+            <p><a href="https://www.ginto.guide/en">https://www.ginto.guide/en</a></p>
+            <p><a href="https://about.ginto.guide/ch-fr/projekte/gemeinsame-plattform">https://about.ginto.guide/ch-fr/projekte/gemeinsame-plattform</a></p>
+            <p class="muted">Plateforme collaborative nationale pour les informations d’accessibilité.</p>
+          </article>
+
+          <article class="source-item">
+            <h3>Fri-access</h3>
+            <p><a href="https://fri-access.ch/">https://fri-access.ch/</a></p>
+            <p class="muted">Répertoire local fribourgeois de lieux accessibles.</p>
+          </article>
+
+          <article class="source-item">
+            <h3>Wheelmap</h3>
+            <p><a href="https://wheelmap.org/">https://wheelmap.org/</a></p>
+            <p class="muted">Carte collaborative internationale des lieux accessibles en fauteuil roulant.</p>
+          </article>
+
+          <article class="source-item">
+            <h3>OpenStreetMap</h3>
+            <p><a href="https://www.openstreetmap.org/">https://www.openstreetmap.org/</a></p>
+            <p><a href="https://wiki.openstreetmap.org/wiki/Key:wheelchair">https://wiki.openstreetmap.org/wiki/Key:wheelchair</a></p>
+            <p class="muted">Base potentielle pour une future carte ou des données interopérables.</p>
+          </article>
+
+          <article class="source-item">
+            <h3>Eurokey</h3>
+            <p><a href="https://www.eurokey.ch/index.html">https://www.eurokey.ch/index.html</a></p>
+            <p class="muted">Source importante pour les WC, ascenseurs ou installations accessibles avec clé Eurokey.</p>
+          </article>
+
+          <article class="source-item">
+            <h3>Loisirs Pour Tous</h3>
+            <p><a href="https://loisirspourtous.ch/">https://loisirspourtous.ch/</a></p>
+            <p class="muted">Source utile pour les loisirs adaptés et inclusifs.</p>
+          </article>
+
+          <article class="source-item">
+            <h3>Procap Fribourg</h3>
+            <p><a href="https://www.procap-fribourg.ch/">https://www.procap-fribourg.ch/</a></p>
+            <p><a href="https://www.procap-fribourg.ch/prestations/construction-adaptee">https://www.procap-fribourg.ch/prestations/construction-adaptee</a></p>
+            <p class="muted">Partenaire potentiel pour valider l’approche et identifier les bons contacts.</p>
+          </article>
+
+          <article class="source-item">
+            <h3>Inclusion Handicap</h3>
+            <p><a href="https://www.inclusion-handicap.ch/">https://www.inclusion-handicap.ch/</a></p>
+            <p class="muted">Source utile pour le cadre général des droits et de l’inclusion.</p>
+          </article>
+
+          <article class="source-item">
+            <h3>Agile.CH</h3>
+            <p><a href="https://agile.ch/fr/">https://agile.ch/fr/</a></p>
+            <p class="muted">Source nationale liée à l’autodétermination et la participation des personnes avec handicap.</p>
+          </article>
+
+          <article class="source-item">
+            <h3>Canton de Fribourg — Politique handicap</h3>
+            <p><a href="https://www.fr.ch/sante/invalidite-et-handicap/politique-relative-a-la-personne-en-situation-de-handicap">https://www.fr.ch/sante/invalidite-et-handicap/politique-relative-a-la-personne-en-situation-de-handicap</a></p>
+            <p><a href="https://www.fr.ch/territoire-amenagement-et-constructions/accessibilite/seca-accessibilite">https://www.fr.ch/territoire-amenagement-et-constructions/accessibilite/seca-accessibilite</a></p>
+            <p class="muted">Cadre institutionnel cantonal.</p>
+          </article>
+
+          <article class="source-item">
+            <h3>Données ouvertes Fribourg</h3>
+            <p><a href="https://opendata.fr.ch/pages/home/">https://opendata.fr.ch/pages/home/</a></p>
+            <p class="muted">Source potentielle pour une future carte ou un croisement de données.</p>
+          </article>
+
+          <article class="source-item">
+            <h3>Fri-Son — Accessibilité</h3>
+            <p><a href="https://www.fri-son.ch/fr/visiter-fri-son/accessibilite">https://www.fri-son.ch/fr/visiter-fri-son/accessibilite</a></p>
+            <p class="muted">Bon exemple de page détaillée pour un lieu culturel.</p>
+          </article>
+
+          <article class="source-item">
+            <h3>Équilibre-Nuithonie — Mobilité et accessibilité</h3>
+            <p><a href="https://www.equilibre-nuithonie.ch/fr/infos-pratiques/lieux-et-acces/mobilite-et-accessibilite">https://www.equilibre-nuithonie.ch/fr/infos-pratiques/lieux-et-acces/mobilite-et-accessibilite</a></p>
+            <p class="muted">Source utile pour les salles de spectacle et l’accessibilité culturelle.</p>
+          </article>
+
+          <article class="source-item">
+            <h3>Musée d’art et d’histoire de Fribourg</h3>
+            <p><a href="https://www.fr.ch/mahf">https://www.fr.ch/mahf</a></p>
+            <p><a href="https://www.fr.ch/mahf/preparez-votre-visite-au-musee-dart-et-dhistoire-fribourg">https://www.fr.ch/mahf/preparez-votre-visite-au-musee-dart-et-dhistoire-fribourg</a></p>
+            <p class="muted">Candidat possible pour une fiche pilote “musée ou lieu culturel”.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>10. Mesure d’impact</h2>
+
+        <p>Pour savoir si le projet fonctionne, plusieurs indicateurs simples pourraient être suivis :</p>
+
+        <ul>
+          <li>nombre de fiches créées ;</li>
+          <li>nombre de lieux documentés ;</li>
+          <li>nombre de trajets documentés ;</li>
+          <li>nombre de WC accessibles recensés ;</li>
+          <li>nombre de parkings PMR documentés ;</li>
+          <li>nombre de contributions reçues ;</li>
+          <li>nombre de corrections apportées ;</li>
+          <li>retours d’utilisateurs ;</li>
+          <li>témoignages de personnes concernées ;</li>
+          <li>collaborations obtenues ;</li>
+          <li>améliorations concrètes réalisées par des lieux ou institutions.</li>
+        </ul>
+      </section>
+
+      <section id="contact" class="card">
+        <h2>11. Contact et collaboration</h2>
+
+        <p>
+          Ce projet est indépendant, citoyen et évolutif. Il est en recherche de collaboration
+          avec les personnes concernées, les associations, les institutions, les acteurs touristiques
+          et les autorités.
+        </p>
+
+        <p>
+          Pour proposer une information, une correction, une collaboration ou un retour :
+        </p>
+
+        <p>
+          <strong>MoreTIC — Julien Moret</strong><br />
+          <a href="mailto:julien.moret@gmail.com">julien.moret@gmail.com</a>
+        </p>
+
+        <div class="notice">
+          <p>
+            Cette page est une première version de travail. Les informations doivent être vérifiées,
+            complétées et mises à jour progressivement. Le projet ne constitue pas une certification officielle.
+          </p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p><strong>MoreTIC</strong> — Informatique, autonomie et projets utiles.</p>
+      <p class="small">
+        Projet indépendant et évolutif. Dernière mise à jour : juillet 2026.
+      </p>
+      <p class="small">
+        <a href="index.html">Retour à l’accueil</a>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
