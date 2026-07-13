@@ -1,0 +1,967 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Demo page for Lily Beauty & Care — beauty products and personal care in Kenya.">
+  <meta name="theme-color" content="#7d315d">
+  <title>Lily Beauty & Care — Demo</title>
+
+  <style>
+    :root {
+      --ink: #2d2430;
+      --muted: #6f6471;
+      --paper: #fffafc;
+      --surface: #ffffff;
+      --soft: #f8eaf1;
+      --soft-2: #fff1df;
+      --brand: #7d315d;
+      --brand-dark: #5d2044;
+      --accent: #d08a45;
+      --line: #eadbe3;
+      --success: #18794e;
+      --shadow: 0 18px 50px rgba(89, 40, 68, .12);
+      --radius: 24px;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% -5%, rgba(208, 138, 69, .12), transparent 35%),
+        radial-gradient(circle at 95% 5%, rgba(125, 49, 93, .11), transparent 32%),
+        var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+
+    img, svg { display: block; max-width: 100%; }
+    a { color: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+
+    .skip-link {
+      position: fixed;
+      left: 12px;
+      top: -80px;
+      z-index: 999;
+      padding: 10px 14px;
+      border-radius: 10px;
+      color: white;
+      background: var(--brand-dark);
+    }
+
+    .skip-link:focus { top: 12px; }
+
+    .demo-bar {
+      padding: 8px 18px;
+      text-align: center;
+      color: #fff;
+      background: var(--brand-dark);
+      font-size: .86rem;
+      font-weight: 700;
+      letter-spacing: .01em;
+    }
+
+    .container {
+      width: min(calc(100% - 36px), var(--max));
+      margin-inline: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(234, 219, 227, .9);
+      background: rgba(255, 250, 252, .9);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      font-weight: 900;
+      letter-spacing: -.02em;
+    }
+
+    .brand-mark {
+      width: 42px;
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      border-radius: 50% 50% 50% 12px;
+      color: #fff;
+      background: linear-gradient(145deg, var(--brand), var(--accent));
+      box-shadow: 0 8px 20px rgba(125, 49, 93, .22);
+      font-family: Georgia, serif;
+      font-size: 1.25rem;
+    }
+
+    .brand small {
+      display: block;
+      color: var(--muted);
+      font-weight: 650;
+      font-size: .7rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    nav ul {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    nav a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 8px 12px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 750;
+      font-size: .92rem;
+    }
+
+    nav a:hover, nav a:focus-visible {
+      background: var(--soft);
+      outline: none;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 48px;
+      padding: 12px 19px;
+      border: 1px solid transparent;
+      border-radius: 14px;
+      color: #fff;
+      background: var(--brand);
+      box-shadow: 0 10px 25px rgba(125, 49, 93, .2);
+      font: inherit;
+      font-weight: 850;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform .16s ease, box-shadow .16s ease, background .16s ease;
+    }
+
+    .button:hover, .button:focus-visible {
+      transform: translateY(-2px);
+      background: var(--brand-dark);
+      box-shadow: 0 13px 32px rgba(125, 49, 93, .27);
+      outline: none;
+    }
+
+    .button.secondary {
+      color: var(--brand-dark);
+      border-color: var(--line);
+      background: rgba(255,255,255,.82);
+      box-shadow: none;
+    }
+
+    .button.secondary:hover, .button.secondary:focus-visible {
+      background: var(--soft);
+    }
+
+    .hero {
+      padding: clamp(64px, 9vw, 110px) 0 76px;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.04fr .96fr;
+      align-items: center;
+      gap: clamp(38px, 7vw, 84px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 18px;
+      padding: 7px 11px;
+      border: 1px solid #edcdb1;
+      border-radius: 999px;
+      color: #6d3f13;
+      background: var(--soft-2);
+      font-size: .78rem;
+      font-weight: 900;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      max-width: 760px;
+      margin-bottom: 22px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3rem, 7vw, 5.75rem);
+      line-height: .97;
+      letter-spacing: -.052em;
+    }
+
+    .hero h1 span { color: var(--brand); }
+
+    .lead {
+      max-width: 650px;
+      margin-bottom: 28px;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: .9rem;
+      font-weight: 700;
+    }
+
+    .trust-row span {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .visual {
+      position: relative;
+      min-height: 510px;
+      display: grid;
+      place-items: center;
+    }
+
+    .visual::before,
+    .visual::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(1px);
+    }
+
+    .visual::before {
+      width: 420px;
+      height: 420px;
+      background: linear-gradient(145deg, #f5dce8, #fff0df);
+      box-shadow: var(--shadow);
+    }
+
+    .visual::after {
+      width: 120px;
+      height: 120px;
+      right: 2%;
+      top: 5%;
+      background: rgba(208, 138, 69, .22);
+    }
+
+    .portrait-card {
+      position: relative;
+      z-index: 2;
+      width: min(86%, 400px);
+      min-height: 470px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      border: 1px solid rgba(255,255,255,.74);
+      border-radius: 44px 44px 44px 12px;
+      overflow: hidden;
+      color: white;
+      background:
+        linear-gradient(to top, rgba(49, 20, 38, .86), rgba(49, 20, 38, .04) 58%),
+        linear-gradient(135deg, #ba769c 0%, #7d315d 52%, #d08a45 100%);
+      box-shadow: 0 30px 70px rgba(89, 40, 68, .27);
+    }
+
+    .portrait-art {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      opacity: .95;
+    }
+
+    .portrait-art svg {
+      width: 84%;
+      filter: drop-shadow(0 18px 20px rgba(42, 17, 32, .2));
+    }
+
+    .portrait-copy {
+      position: relative;
+      z-index: 2;
+    }
+
+    .portrait-copy p {
+      margin-bottom: 3px;
+      opacity: .85;
+      font-weight: 700;
+    }
+
+    .portrait-copy strong {
+      display: block;
+      font-family: Georgia, serif;
+      font-size: 2rem;
+      line-height: 1.05;
+    }
+
+    .floating-note {
+      position: absolute;
+      z-index: 3;
+      max-width: 190px;
+      padding: 15px 17px;
+      border: 1px solid rgba(255,255,255,.84);
+      border-radius: 18px;
+      background: rgba(255,255,255,.9);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+      font-size: .87rem;
+      font-weight: 800;
+    }
+
+    .floating-note.one { left: 0; top: 18%; }
+    .floating-note.two { right: 0; bottom: 11%; }
+
+    section { padding: 84px 0; }
+
+    .section-head {
+      max-width: 720px;
+      margin-bottom: 34px;
+    }
+
+    .section-head h2 {
+      margin-bottom: 12px;
+      font-family: Georgia, serif;
+      font-size: clamp(2.15rem, 5vw, 3.45rem);
+      line-height: 1.06;
+      letter-spacing: -.035em;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      font-size: 1.04rem;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .product-card {
+      position: relative;
+      min-height: 390px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.84);
+      box-shadow: 0 12px 36px rgba(89, 40, 68, .07);
+      overflow: hidden;
+    }
+
+    .product-art {
+      min-height: 190px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 20px;
+      border-radius: 18px;
+      background:
+        radial-gradient(circle at 30% 20%, rgba(255,255,255,.92), transparent 32%),
+        linear-gradient(145deg, var(--soft), var(--soft-2));
+    }
+
+    .bottle {
+      position: relative;
+      width: 96px;
+      height: 134px;
+      border: 3px solid rgba(92, 43, 71, .72);
+      border-radius: 20px 20px 30px 30px;
+      background: linear-gradient(145deg, rgba(255,255,255,.94), rgba(232,189,209,.65));
+      box-shadow: inset -12px -14px 25px rgba(125,49,93,.08), 0 20px 30px rgba(89,40,68,.14);
+    }
+
+    .bottle::before {
+      content: "";
+      position: absolute;
+      left: 27px;
+      top: -35px;
+      width: 38px;
+      height: 34px;
+      border: 3px solid rgba(92, 43, 71, .72);
+      border-bottom: 0;
+      border-radius: 8px 8px 0 0;
+      background: #f4ddc6;
+    }
+
+    .bottle::after {
+      content: "LILY";
+      position: absolute;
+      left: 13px;
+      right: 13px;
+      top: 48px;
+      padding: 9px 2px;
+      border: 1px solid rgba(92,43,71,.25);
+      border-radius: 7px;
+      text-align: center;
+      color: var(--brand-dark);
+      background: rgba(255,255,255,.68);
+      font-family: Georgia, serif;
+      font-size: .74rem;
+      font-weight: 900;
+      letter-spacing: .12em;
+    }
+
+    .product-card h3 {
+      margin-bottom: 6px;
+      font-size: 1.22rem;
+    }
+
+    .product-card p {
+      color: var(--muted);
+      font-size: .94rem;
+    }
+
+    .product-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: auto;
+      padding-top: 15px;
+      border-top: 1px solid var(--line);
+    }
+
+    .price {
+      color: var(--brand-dark);
+      font-weight: 900;
+    }
+
+    .text-link {
+      color: var(--brand);
+      font-weight: 850;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 3px;
+    }
+
+    .services {
+      background: linear-gradient(180deg, rgba(248,234,241,.44), rgba(255,250,252,0));
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .service {
+      padding: 25px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: #fff;
+      box-shadow: 0 10px 28px rgba(89,40,68,.055);
+    }
+
+    .service-icon {
+      width: 50px;
+      height: 50px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      border-radius: 15px;
+      color: var(--brand-dark);
+      background: var(--soft);
+      font-size: 1.5rem;
+    }
+
+    .service h3 {
+      margin-bottom: 8px;
+      font-size: 1.08rem;
+    }
+
+    .service p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: .82fr 1.18fr;
+      gap: clamp(34px, 7vw, 78px);
+      align-items: center;
+    }
+
+    .story-photo {
+      min-height: 470px;
+      display: grid;
+      place-items: center;
+      padding: 28px;
+      border-radius: 36px 36px 36px 12px;
+      background:
+        radial-gradient(circle at 35% 25%, rgba(255,255,255,.86), transparent 20%),
+        linear-gradient(145deg, #f2cddd, #e9b46f);
+      box-shadow: var(--shadow);
+    }
+
+    .story-photo svg { width: min(95%, 390px); }
+
+    .story-copy h2 {
+      margin-bottom: 18px;
+      font-family: Georgia, serif;
+      font-size: clamp(2.2rem, 5vw, 3.7rem);
+      line-height: 1.04;
+      letter-spacing: -.04em;
+    }
+
+    .story-copy p {
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .values {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .value {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,.75);
+    }
+
+    .value strong { display: block; }
+    .value span { color: var(--muted); font-size: .88rem; }
+
+    .cta {
+      padding-top: 54px;
+      padding-bottom: 92px;
+    }
+
+    .cta-card {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(34px, 7vw, 64px);
+      border-radius: 34px;
+      color: white;
+      background:
+        radial-gradient(circle at 90% 15%, rgba(255,255,255,.18), transparent 25%),
+        linear-gradient(135deg, var(--brand-dark), var(--brand) 58%, #a95b65);
+      box-shadow: 0 26px 70px rgba(89,40,68,.26);
+    }
+
+    .cta-card h2 {
+      max-width: 650px;
+      margin-bottom: 14px;
+      font-family: Georgia, serif;
+      font-size: clamp(2.15rem, 5vw, 3.7rem);
+      line-height: 1.04;
+      letter-spacing: -.04em;
+    }
+
+    .cta-card p {
+      max-width: 610px;
+      margin-bottom: 24px;
+      color: rgba(255,255,255,.84);
+    }
+
+    .cta-card .button {
+      color: var(--brand-dark);
+      background: white;
+      box-shadow: none;
+    }
+
+    .cta-card .button:hover,
+    .cta-card .button:focus-visible {
+      background: var(--soft-2);
+    }
+
+    footer {
+      padding: 30px 0 42px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .footer-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .footer-row a {
+      color: var(--brand);
+      font-weight: 800;
+    }
+
+    @media (max-width: 900px) {
+      nav ul { display: none; }
+      .hero-grid, .story-grid { grid-template-columns: 1fr; }
+      .hero-copy { text-align: center; }
+      .hero-copy .eyebrow { margin-inline: auto; }
+      .lead { margin-inline: auto; }
+      .actions, .trust-row { justify-content: center; }
+      .visual { min-height: 470px; }
+      .products-grid { grid-template-columns: repeat(2, 1fr); }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .story-photo { min-height: 380px; }
+    }
+
+    @media (max-width: 620px) {
+      .container { width: min(calc(100% - 24px), var(--max)); }
+      .demo-bar { font-size: .77rem; }
+      header .button { display: none; }
+      .brand small { display: none; }
+      .hero { padding-top: 52px; }
+      .hero h1 { font-size: clamp(2.85rem, 16vw, 4.2rem); }
+      .visual { min-height: 420px; }
+      .visual::before { width: 330px; height: 330px; }
+      .portrait-card { min-height: 395px; padding: 24px; }
+      .floating-note { max-width: 155px; padding: 12px 13px; font-size: .76rem; }
+      .floating-note.one { left: -4px; }
+      .floating-note.two { right: -4px; }
+      section { padding: 66px 0; }
+      .products-grid, .services-grid, .values { grid-template-columns: 1fr; }
+      .product-card { min-height: 360px; }
+      .footer-row { align-items: flex-start; flex-direction: column; }
+      .actions .button { width: 100%; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="demo-bar">
+    DEMO CONCEPT — prices, services and contact details must be confirmed
+  </div>
+
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Lily Beauty & Care home">
+        <span class="brand-mark" aria-hidden="true">L</span>
+        <span>
+          Lily Beauty & Care
+          <small>Feel good. Look radiant.</small>
+        </span>
+      </a>
+
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About Florence</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <a class="button demo-whatsapp" href="#contact">Order on WhatsApp</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Beauty • Fragrance • Personal care</p>
+          <h1>Beauty that feels <span>like you.</span></h1>
+          <p class="lead">
+            Carefully selected fragrances, beauty essentials and personal care,
+            offered with friendly advice and simple ordering in Kenya.
+          </p>
+
+          <div class="actions">
+            <a class="button" href="#products">Explore products</a>
+            <a class="button secondary demo-whatsapp" href="#contact">Chat with Florence</a>
+          </div>
+
+          <div class="trust-row" aria-label="Benefits">
+            <span>✓ Friendly advice</span>
+            <span>✓ Easy M-Pesa payment</span>
+            <span>✓ Local delivery options</span>
+          </div>
+        </div>
+
+        <div class="visual" aria-label="Decorative beauty illustration">
+          <div class="portrait-card">
+            <div class="portrait-art" aria-hidden="true">
+              <svg viewBox="0 0 360 430" role="img">
+                <defs>
+                  <linearGradient id="skin" x1="0" x2="1">
+                    <stop offset="0" stop-color="#7c452f"/>
+                    <stop offset="1" stop-color="#b16a49"/>
+                  </linearGradient>
+                  <linearGradient id="dress" x1="0" x2="1">
+                    <stop offset="0" stop-color="#f2c1d9"/>
+                    <stop offset="1" stop-color="#e39cbf"/>
+                  </linearGradient>
+                </defs>
+                <circle cx="180" cy="135" r="82" fill="url(#skin)"/>
+                <path d="M97 128c0-75 41-112 86-112 50 0 91 39 91 112-19-34-34-50-53-57-31 32-71 43-124 57Z" fill="#25141f"/>
+                <path d="M113 122c-17-13-28 1-20 25 6 18 23 20 30 8" fill="url(#skin)"/>
+                <path d="M247 122c17-13 28 1 20 25-6 18-23 20-30 8" fill="url(#skin)"/>
+                <ellipse cx="149" cy="139" rx="8" ry="5" fill="#24151d"/>
+                <ellipse cx="211" cy="139" rx="8" ry="5" fill="#24151d"/>
+                <path d="M168 177c9 8 17 9 25 0" fill="none" stroke="#5b2737" stroke-width="5" stroke-linecap="round"/>
+                <path d="M180 203c42 0 61 24 66 66l14 137H100l14-137c5-42 24-66 66-66Z" fill="url(#dress)"/>
+                <path d="M126 218c-25 30-33 83-37 145h39l20-137" fill="url(#skin)"/>
+                <path d="M234 218c25 30 33 83 37 145h-39l-20-137" fill="url(#skin)"/>
+                <path d="M118 72c-14-28 2-53 24-55M154 49c-8-34 22-49 44-35M205 49c10-30 40-26 50-5M239 72c25-14 39 7 34 31" fill="none" stroke="#25141f" stroke-width="18" stroke-linecap="round"/>
+                <circle cx="148" cy="146" r="2" fill="#fff"/>
+                <circle cx="210" cy="146" r="2" fill="#fff"/>
+              </svg>
+            </div>
+            <div class="portrait-copy">
+              <p>Your local beauty contact</p>
+              <strong>Florence Akinyi</strong>
+            </div>
+          </div>
+
+          <div class="floating-note one">🌸 Personal recommendations</div>
+          <div class="floating-note two">📱 Order directly by WhatsApp</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="products">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Featured selection</p>
+          <h2>Find a fragrance for every mood.</h2>
+          <p>
+            These are demonstration products. Florence can replace them with her
+            real catalogue, photos, sizes and prices.
+          </p>
+        </div>
+
+        <div class="products-grid">
+          <article class="product-card">
+            <div class="product-art"><div class="bottle" aria-hidden="true"></div></div>
+            <h3>Pink Chiffon</h3>
+            <p>Soft, sweet and feminine — an easy everyday fragrance.</p>
+            <div class="product-meta">
+              <span class="price">Price to confirm</span>
+              <a class="text-link demo-whatsapp" href="#contact">Ask Florence</a>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-art"><div class="bottle" aria-hidden="true"></div></div>
+            <h3>One Million</h3>
+            <p>A bold and confident scent with a warm, luxurious character.</p>
+            <div class="product-meta">
+              <span class="price">Price to confirm</span>
+              <a class="text-link demo-whatsapp" href="#contact">Ask Florence</a>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-art"><div class="bottle" aria-hidden="true"></div></div>
+            <h3>Sweet Camilla</h3>
+            <p>A playful fragrance for anyone who enjoys soft and sweet notes.</p>
+            <div class="product-meta">
+              <span class="price">Price to confirm</span>
+              <a class="text-link demo-whatsapp" href="#contact">Ask Florence</a>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-art"><div class="bottle" aria-hidden="true"></div></div>
+            <h3>Chelsea</h3>
+            <p>A polished and versatile scent for daytime or evening wear.</p>
+            <div class="product-meta">
+              <span class="price">Price to confirm</span>
+              <a class="text-link demo-whatsapp" href="#contact">Ask Florence</a>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-art"><div class="bottle" aria-hidden="true"></div></div>
+            <h3>Blue Berry</h3>
+            <p>Fresh, fruity and bright — a cheerful addition to your collection.</p>
+            <div class="product-meta">
+              <span class="price">Price to confirm</span>
+              <a class="text-link demo-whatsapp" href="#contact">Ask Florence</a>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-art"><div class="bottle" aria-hidden="true"></div></div>
+            <h3>Custom recommendation</h3>
+            <p>Tell Florence what scents you usually like and receive a suggestion.</p>
+            <div class="product-meta">
+              <span class="price">Free advice</span>
+              <a class="text-link demo-whatsapp" href="#contact">Start a chat</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Possible services</p>
+          <h2>More than products: personal care made simple.</h2>
+          <p>
+            This section can be adapted to the exact services Florence wants to offer,
+            at home, mobile, or from a future salon.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service">
+            <div class="service-icon" aria-hidden="true">✨</div>
+            <h3>Beauty advice</h3>
+            <p>Simple recommendations based on style, budget and personal taste.</p>
+          </article>
+
+          <article class="service">
+            <div class="service-icon" aria-hidden="true">💇🏾‍♀️</div>
+            <h3>Hair & braids</h3>
+            <p>A space for braiding, styling or hair-care services, if offered.</p>
+          </article>
+
+          <article class="service">
+            <div class="service-icon" aria-hidden="true">💅🏾</div>
+            <h3>Nails & care</h3>
+            <p>Manicure, pedicure or basic personal-care services, if offered.</p>
+          </article>
+
+          <article class="service">
+            <div class="service-icon" aria-hidden="true">🛵</div>
+            <h3>Local delivery</h3>
+            <p>Delivery or collection arrangements confirmed directly on WhatsApp.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container story-grid">
+        <div class="story-photo" aria-label="Decorative illustration of Florence's beauty business">
+          <svg viewBox="0 0 420 420" role="img" aria-hidden="true">
+            <circle cx="210" cy="210" r="174" fill="rgba(255,255,255,.54)"/>
+            <path d="M107 273c17-72 68-111 103-111s86 39 103 111v76H107Z" fill="#7d315d"/>
+            <circle cx="210" cy="133" r="68" fill="#9f5e41"/>
+            <path d="M143 131c0-64 30-96 70-96 44 0 72 35 72 96-20-29-35-42-53-47-25 26-55 37-89 47Z" fill="#27151f"/>
+            <path d="M185 139c6 4 12 4 17 0M221 139c6 4 12 4 17 0" stroke="#25151d" stroke-width="5" stroke-linecap="round"/>
+            <path d="M197 167c9 7 18 7 27 0" stroke="#5b2737" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <path d="M120 322h180" stroke="#d08a45" stroke-width="10" stroke-linecap="round"/>
+            <circle cx="100" cy="104" r="25" fill="#d08a45" opacity=".75"/>
+            <circle cx="330" cy="90" r="17" fill="#7d315d" opacity=".55"/>
+            <path d="M77 178c-23 6-35 25-28 47 27 3 44-11 48-34-2 22 11 40 36 46 13-20 8-42-10-56-15-12-30-13-46-3Z" fill="#fff4da"/>
+            <path d="M332 225c-22 6-33 24-27 45 26 3 42-11 46-32-2 21 11 38 34 44 13-19 8-40-9-53-14-11-29-12-44-4Z" fill="#fff4da"/>
+          </svg>
+        </div>
+
+        <div class="story-copy">
+          <p class="eyebrow">Meet the founder</p>
+          <h2>A small business built around trust.</h2>
+          <p>
+            Lily Beauty & Care is presented here as a personal, approachable business:
+            customers know who they are buying from and can speak directly with Florence
+            before ordering.
+          </p>
+          <p>
+            The final text could tell her real story: why she chose beauty and sales,
+            what she wants customers to feel, and how she selects her products.
+          </p>
+
+          <div class="values">
+            <div class="value">
+              <strong>Personal</strong>
+              <span>Real conversation, not an anonymous shop.</span>
+            </div>
+            <div class="value">
+              <strong>Accessible</strong>
+              <span>Simple ordering and clear information.</span>
+            </div>
+            <div class="value">
+              <strong>Local</strong>
+              <span>Focused on customers in her area.</span>
+            </div>
+            <div class="value">
+              <strong>Flexible</strong>
+              <span>A site that can grow with the business.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="contact">
+      <div class="container">
+        <div class="cta-card">
+          <h2>Tell Florence what you are looking for.</h2>
+          <p>
+            Ask about a fragrance, availability, delivery or a future beauty appointment.
+            The real WhatsApp number can be added when the page is approved.
+          </p>
+          <a class="button demo-whatsapp" href="#">Open WhatsApp — demo</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <span>© 2026 Lily Beauty & Care — demonstration page</span>
+      <span>Concept prepared on <a href="https://moretic.ch/">MoreTIC</a></span>
+    </div>
+  </footer>
+
+  <script>
+    // DEMO ONLY:
+    // Replace this alert with Florence's real WhatsApp link, for example:
+    // https://wa.me/2547XXXXXXXX?text=Hello%20Florence...
+    document.querySelectorAll(".demo-whatsapp").forEach(function (link) {
+      link.addEventListener("click", function (event) {
+        event.preventDefault();
+        alert("Demo page: replace this button with Florence’s real WhatsApp number.");
+      });
+    });
+  </script>
+</body>
+</html>
