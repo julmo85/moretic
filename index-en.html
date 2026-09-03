@@ -1,26 +1,26 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>MoreTIC — Aide informatique, formations IA et autonomie numérique à Fribourg</title>
+  <title>MoreTIC — Friendly IT support, AI training and digital confidence in Fribourg</title>
 
   <meta
     name="description"
-    content="MoreTIC propose de l’aide informatique, des formations IA, des cours informatiques et un accompagnement numérique à Fribourg — simple, humain, flexible et sans jargon."
+    content="MoreTIC offers friendly IT support, practical computer and AI training, simple websites and digital accessibility guidance in Fribourg — clearly explained and without jargon."
   />
 
   <meta name="author" content="MoreTIC - Julien Moret" />
   <meta name="robots" content="index, follow" />
 
-  <meta property="og:title" content="MoreTIC — Aide informatique et formations IA à Fribourg" />
+  <meta property="og:title" content="MoreTIC — Friendly IT support and practical AI training in Fribourg" />
   <meta
     property="og:description"
-    content="Aide informatique, cours, formations IA et accompagnement numérique à Fribourg — simple, flexible et sans stress."
+    content="Friendly IT help, practical training and digital guidance in Fribourg — clear, flexible and without the stress."
   />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.moretic.ch/" />
+  <meta property="og:url" content="https://www.moretic.ch/index-en.html" />
   <meta property="og:image" content="https://www.moretic.ch/og-cover.jpg" />
 
   <link rel="icon" href="favicon.ico" />
@@ -194,14 +194,20 @@
       border: 2px solid #ffffff;
     }
 
-    /* Boutons secondaires sur fond clair : texte et contour vert foncé. */
+    button.button {
+      font: inherit;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    /* Secondary buttons on light backgrounds: dark green text and border. */
     .button.secondary {
       background: transparent;
       color: var(--accent);
       border-color: var(--accent);
     }
 
-    /* Le bandeau sombre conserve ses boutons secondaires blancs. */
+    /* Secondary buttons in the dark header remain white. */
     header .button.secondary {
       color: #ffffff;
       border-color: rgba(255,255,255,0.7);
@@ -332,41 +338,46 @@
     footer a { color: #ffffff; }
 
     .small { font-size: 0.95rem; }
+
+    .email-copy-status {
+      min-height: 1.6em;
+      margin: 0.75rem 0 0;
+    }
   </style>
 </head>
 
 <body>
-  <a class="skip-link" href="#contenu">Ignorer et passer au contenu</a>
+  <a class="skip-link" href="#contenu">Skip to the main content</a>
 
   <header>
     <div class="container">
       <div class="topbar">
-        <div class="brand"><a href="index.html">MTIC MoreTIC</a></div>
+        <div class="brand"><a href="index-en.html">MTIC MoreTIC</a></div>
 
-        <nav aria-label="Navigation principale">
+        <nav aria-label="Main navigation">
           <ul>
             <li><a href="#services">Services</a></li>
-            <li><a href="#formations">Formations</a></li>
-            <li><a href="#accessibilite">Accessibilité</a></li>
+            <li><a href="#formations">Training</a></li>
+            <li><a href="#accessibilite">Accessibility</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li><a class="language-link" href="index-en.html">EN</a></li>
+            <li><a class="language-link" href="index.html" lang="fr" hreflang="fr">FR</a></li>
           </ul>
         </nav>
       </div>
 
       <div class="hero">
-        <span class="eyebrow">Aide informatique calme et humaine</span>
+        <span class="eyebrow">Calm, friendly IT support</span>
 
-        <h1>Informatique sans stress. Vraie aide, sans jargon.</h1>
+        <h1>Technology without the stress. Real help, clearly explained.</h1>
 
         <p class="subtitle">
-          MoreTIC propose de l’aide informatique, des cours, des formations IA et un accompagnement numérique à Fribourg.
-          On prend le temps, on explique clairement, et tu gardes le contrôle.
+          MoreTIC offers friendly IT support, practical training and digital guidance in Fribourg.
+          We take the time to understand what you need, explain things clearly, and make sure you stay in control.
         </p>
 
         <div class="hero-actions">
-          <a class="button" href="#services">Voir les services</a>
-          <a class="button secondary" href="#formations">Voir les formations</a>
+          <a class="button" href="#services">Explore the services</a>
+          <a class="button secondary" href="#formations">Explore the training</a>
         </div>
       </div>
     </div>
@@ -375,20 +386,20 @@
   <main id="contenu">
     <div class="container">
 
-      <section class="grid" aria-label="Points clés">
+      <section class="grid" aria-label="What MoreTIC can help with">
         <div class="card col-4">
-          <h3>Aide à domicile</h3>
-          <p class="muted">Installation PC, Wi‑Fi, imprimantes, sauvegardes et conseils pratiques.</p>
+          <h3>Help at home</h3>
+          <p class="muted">Computers, Wi-Fi, printers, backups and practical advice, right where you use them.</p>
         </div>
 
         <div class="card col-4">
-          <h3>Aide à distance</h3>
-          <p class="muted">Dépannage pas à pas, explications simples et accompagnement calme.</p>
+          <h3>Remote support</h3>
+          <p class="muted">Step-by-step troubleshooting, clear explanations and patient guidance.</p>
         </div>
 
         <div class="card col-4">
-          <h3>Formations IA</h3>
-          <p class="muted">Découvrir ChatGPT, mieux poser ses questions et utiliser l’IA au quotidien.</p>
+          <h3>Practical AI training</h3>
+          <p class="muted">Get comfortable with ChatGPT, ask better questions and use AI in everyday life.</p>
         </div>
       </section>
 
@@ -396,101 +407,147 @@
         <h2>Services</h2>
 
         <p>
-          MoreTIC aide les personnes qui veulent utiliser le numérique plus sereinement, sans pression et sans vocabulaire inutilement compliqué.
+          MoreTIC helps people feel more comfortable with technology, without pressure and without needlessly complicated language.
         </p>
 
         <div class="grid">
           <div class="col-6">
-            <h3>Aide informatique à distance</h3>
-            <p>Dépannage, réglages, nettoyage, sauvegardes, e-mails, sécurité, organisation des fichiers et accompagnement étape par étape.</p>
+            <h3>Remote IT support</h3>
+            <p>Troubleshooting, settings, clean-up, backups, email, basic security, file organisation and step-by-step guidance.</p>
           </div>
 
           <div class="col-6">
-            <h3>Aide informatique à domicile</h3>
-            <p>Installation, matériel, imprimantes, Wi‑Fi, configuration, conseils pratiques et aide sur tes propres appareils.</p>
+            <h3>IT support at home</h3>
+            <p>Installation, devices, printers, Wi-Fi, configuration, practical advice and support using your own equipment.</p>
           </div>
 
           <div class="col-6">
-            <h3>Cours individuels</h3>
-            <p>Apprendre à ton rythme, sur tes besoins réels : ordinateur, smartphone, internet, sécurité, IA, documents, photos ou démarches.</p>
+            <h3>One-to-one lessons</h3>
+            <p>Learn at your own pace, based on what you actually need: computer, smartphone, internet, security, AI, documents, photos or online tasks.</p>
           </div>
 
           <div class="col-6">
-            <h3>Organisation numérique</h3>
-            <p>Classer, sauvegarder, retrouver, sécuriser et mieux gérer les documents importants.</p>
+            <h3>Digital organisation</h3>
+            <p>Organise, back up, find and protect your important documents, so they are easier to manage.</p>
+          </div>
+
+          <div id="sites-internet" class="col-6">
+            <h3>Simple website creation</h3>
+            <p>
+              A clear website to present your activity, services and contact details.
+              For self-employed people, small organisations and associations.
+            </p>
+            <p>
+              Together, we decide which pages, content and functions are genuinely useful.
+              Mobile display, publishing the site and helping you take ownership of it are all prepared and checked together.
+            </p>
+            <p class="small muted">
+              The scope, hosting and maintenance are clarified before work begins.
+              This service is for presentation websites, without an online shop or a complex customer area.
+            </p>
+            <p><a href="#contact">Talk about your website idea</a></p>
+          </div>
+
+          <div id="accessibilite-numerique" class="col-6">
+            <h3>Digital accessibility</h3>
+            <p>
+              Is a website difficult to navigate, a document hard to read or a setting getting in the way?
+              MoreTIC helps identify the obstacles and find practical improvements that fit the situation.
+            </p>
+            <p>
+              Readability, keyboard navigation, information structure or assistive settings:
+              the review focuses on a specific real-life use. Any agreed changes are then checked in that same use.
+            </p>
+            <p class="small muted">
+              A focused, practical service, separate from a full audit or official certification.
+            </p>
+            <p><a href="#contact">Describe an accessibility problem</a></p>
           </div>
         </div>
       </section>
 
       <section id="formations" class="card">
-        <h2>Formation informatique à Fribourg</h2>
+        <h2>Computer training in Fribourg</h2>
 
         <p>
-          MoreTIC propose des formations informatiques à Fribourg pour les débutants, les seniors,
-          les personnes qui veulent gagner en autonomie numérique ou apprendre à utiliser l’intelligence artificielle simplement.
+          MoreTIC offers practical computer training in Fribourg for beginners, older people and anyone
+          who wants to feel more confident and independent with technology or use artificial intelligence in a straightforward way.
         </p>
 
         <p>
-          Les cours peuvent être adaptés selon le niveau, le rythme, les besoins et les appareils de la personne.
-          L’objectif n’est pas de tout savoir, mais de devenir plus à l’aise, plus autonome et plus confiant.
+          Lessons can be adapted to your starting point, pace, needs and devices.
+          The aim is not to know everything, but to feel more comfortable, capable and confident.
         </p>
 
-        <ul class="pill-list">
-          <li>Cours informatique débutant</li>
-          <li>Formation IA</li>
+        <ul class="pill-list" aria-label="Training topics">
+          <li>Computer basics</li>
+          <li>AI training</li>
           <li>ChatGPT</li>
           <li>Smartphone</li>
-          <li>Internet et sécurité</li>
-          <li>Windows et fichiers</li>
-          <li>Autonomie numérique</li>
+          <li>Internet and security</li>
+          <li>Windows and files</li>
+          <li>Digital confidence</li>
         </ul>
       </section>
 
-      <section class="grid" aria-label="Formations détaillées">
+      <section class="grid" aria-label="Training in more detail">
         <div class="card col-6">
-          <h3>Intelligence artificielle</h3>
-          <p>Découvrir ChatGPT, comprendre ses limites, apprendre à poser de meilleures questions, écrire, corriger, résumer, traduire et organiser ses idées.</p>
+          <h3>Use ChatGPT in everyday life</h3>
+          <p>Write an email, rework a text or organise your ideas, while learning to check the answers and protect your personal information.</p>
+          <p class="small muted">Explore artificial intelligence, understand its limits, ask better questions, write, edit, summarise and translate.</p>
         </div>
 
         <div class="card col-6">
-          <h3>Ordinateur</h3>
-          <p>Reprendre les bases : Windows, dossiers, fichiers, sauvegardes, nettoyage, sécurité et habitudes simples.</p>
+          <h3>Find and back up your files</h3>
+          <p>Organise your documents and photos, find a file and check that a backup can actually be used.</p>
+          <p class="small muted">Build confidence with Windows: folders, files, clean-up, security and simple everyday habits.</p>
         </div>
 
         <div class="card col-6">
-          <h3>Smartphone</h3>
-          <p>Mieux utiliser Android ou iPhone : photos, applications, WhatsApp, réglages, sécurité et sauvegardes.</p>
+          <h3>Get more from your smartphone</h3>
+          <p>Send photos, share a document, use WhatsApp and adapt the settings to your needs, on Android or iPhone.</p>
+          <p class="small muted">Get comfortable with apps, security and phone backups.</p>
         </div>
 
         <div class="card col-6">
-          <h3>Internet et sécurité</h3>
-          <p>Repérer les arnaques, gérer ses mots de passe, naviguer plus calmement et utiliser les services en ligne avec plus de confiance.</p>
+          <h3>Spot scams and protect your accounts</h3>
+          <p>Review a suspicious message, check a link and learn good habits for passwords and security.</p>
+          <p class="small muted">Browse more calmly and use online services with greater confidence.</p>
+        </div>
+
+        <div class="card col-12">
+          <h3>What happens in a training session?</h3>
+          <p>We start with something you genuinely want to do. I show you, then you practise on your own device, at your own pace. Together, we check what you can repeat on your own and what still needs support.</p>
+          <div class="hero-actions">
+            <a class="button secondary" href="#contact">Talk about your training needs</a>
+          </div>
         </div>
       </section>
 
       <section id="accessibilite" class="card">
-        <h2>Projet accessibilité à Fribourg</h2>
+        <h2>Accessibility project in Fribourg</h2>
 
         <p>
-          MoreTIC développe aussi le projet <strong>Autonomie sans frontières architecturales</strong>,
-          un guide pratique terrain pour mieux documenter l’accessibilité réelle à Fribourg.
+          MoreTIC is also developing the <strong>Architectural Autonomy Without Borders</strong> project,
+          a practical field guide designed to document real-world accessibility in Fribourg more clearly.
         </p>
 
         <p>
-          L’idée est de rassembler les informations existantes, identifier les lacunes et préparer des fiches pilotes sur les trajets,
-          WC accessibles, parkings PMR, lieux culturels et obstacles pratiques.
+          The idea is to bring existing information together, identify what is missing and prepare pilot guides covering routes,
+          accessible toilets, disabled parking, cultural venues and practical barriers.
         </p>
 
         <div class="hero-actions">
-          <a class="button" href="accessibilite-fribourg.html">Voir le projet en français</a>
-          <a class="button secondary" href="accessibility-fribourg.html">English</a>
-          <a class="button secondary" href="barrierefreiheit-freiburg.html">Deutsch</a>
+          <a class="button secondary" href="accessibilite-fribourg.html" lang="fr" hreflang="fr">Français</a>
+          <a class="button secondary" href="accessibility-fribourg.html" lang="en" hreflang="en">English</a>
+          <a class="button secondary" href="barrierefreiheit-freiburg.html" lang="de" hreflang="de">Deutsch</a>
         </div>
 
         <div class="notice">
           <p>
-            Projet indépendant, citoyen et évolutif, en recherche de collaboration avec les personnes concernées,
-            les associations, les institutions et les autorités.
+            An independent, citizen-led and evolving project, seeking collaboration with disabled people and others directly concerned,
+            associations, institutions and public authorities.
+            This initiative is separate from MoreTIC’s commercial services.
           </p>
         </div>
       </section>
@@ -499,19 +556,30 @@
         <h2>Contact</h2>
 
         <p>
-          Un court message suffit. Dis-moi ce que tu veux faire, où tu bloques, et si tu préfères une aide à distance ou à domicile.
+          A short message is enough. Tell me what you would like to do, where you are getting stuck, and whether you would prefer remote support or help at home.
         </p>
 
         <ul>
-          <li><strong>WhatsApp / téléphone :</strong> <a href="tel:+41768220051">+41 76 822 00 51</a></li>
-          <li><strong>E-mail :</strong> <a href="mailto:contact@moretic.ch">contact@moretic.ch</a></li>
-          <li><strong>Zone :</strong> Fribourg et environs — aide à domicile possible</li>
+          <li><strong>WhatsApp / phone:</strong> <a href="tel:+41768220051">+41 76 822 00 51</a></li>
+          <li><strong>Email:</strong> <span id="email-address">contact@moretic.ch</span></li>
+          <li><strong>Area:</strong> Fribourg and surrounding areas — home visits may be possible</li>
         </ul>
 
+        <p id="email-copy-help" class="small muted">
+          To write by email, copy the address and paste it into your email app.
+        </p>
+
         <div class="hero-actions">
-          <a class="button" href="https://wa.me/41768220051">Message WhatsApp</a>
-          <a class="button secondary" href="mailto:contact@moretic.ch">Envoyer un e-mail</a>
+          <a class="button" href="https://wa.me/41768220051">Send a WhatsApp message</a>
+          <button
+            id="copy-email"
+            class="button secondary"
+            type="button"
+            aria-describedby="email-copy-help"
+          >Copy email address</button>
         </div>
+
+        <p id="email-copy-status" class="small email-copy-status" role="status" aria-live="polite"></p>
       </section>
 
     </div>
@@ -519,10 +587,39 @@
 
   <footer>
     <div class="container">
-      <p><strong>MoreTIC</strong> — Aide informatique, formations IA et autonomie numérique à Fribourg.</p>
+      <p><strong>MoreTIC</strong> — IT support, practical AI training and digital confidence in Fribourg.</p>
       <p class="small">© 2026 MoreTIC — Julien Moret</p>
-      <p class="small"><a href="#contenu">Retour en haut</a></p>
+      <p class="small"><a href="#contenu">Back to the top</a></p>
     </div>
   </footer>
+
+  <script>
+    const emailCopyButton = document.getElementById("copy-email");
+    const emailCopyStatus = document.getElementById("email-copy-status");
+
+    window.copyEmailAddress = async function (clipboard = navigator.clipboard) {
+      try {
+        if (!clipboard || typeof clipboard.writeText !== "function") {
+          throw new Error("Automatic copy unavailable");
+        }
+
+        await clipboard.writeText("contact@moretic.ch");
+        emailCopyStatus.textContent = "Email address copied.";
+        return true;
+      } catch {
+        emailCopyStatus.textContent =
+          "The automatic copy did not work. Select the email address above and copy it manually.";
+        return false;
+      }
+    };
+
+    emailCopyButton.addEventListener("click", async () => {
+      emailCopyButton.disabled = true;
+      await window.copyEmailAddress();
+      emailCopyButton.disabled = false;
+      emailCopyButton.focus();
+    });
+  </script>
 </body>
 </html>
+
