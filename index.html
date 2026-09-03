@@ -194,6 +194,12 @@
       border: 2px solid #ffffff;
     }
 
+    button.button {
+      font: inherit;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
     /* Boutons secondaires sur fond clair : texte et contour vert foncé. */
     .button.secondary {
       background: transparent;
@@ -332,6 +338,11 @@
     footer a { color: #ffffff; }
 
     .small { font-size: 0.95rem; }
+
+    .email-copy-status {
+      min-height: 1.6em;
+      margin: 0.75rem 0 0;
+    }
   </style>
 </head>
 
@@ -552,14 +563,25 @@
 
         <ul>
           <li><strong>WhatsApp / téléphone :</strong> <a href="tel:+41768220051">+41 76 822 00 51</a></li>
-          <li><strong>E-mail :</strong> <a href="mailto:contact@moretic.ch">contact@moretic.ch</a></li>
+          <li><strong>E-mail :</strong> <span id="email-address">contact@moretic.ch</span></li>
           <li><strong>Zone :</strong> Fribourg et environs — aide à domicile possible</li>
         </ul>
 
+        <p id="email-copy-help" class="small muted">
+          Pour écrire par e-mail, copie l’adresse puis colle-la dans ton application de messagerie.
+        </p>
+
         <div class="hero-actions">
           <a class="button" href="https://wa.me/41768220051">Message WhatsApp</a>
-          <a class="button secondary" href="mailto:contact@moretic.ch">Envoyer un e-mail</a>
+          <button
+            id="copy-email"
+            class="button secondary"
+            type="button"
+            aria-describedby="email-copy-help"
+          >Copier l’adresse e-mail</button>
         </div>
+
+        <p id="email-copy-status" class="small email-copy-status" role="status" aria-live="polite"></p>
       </section>
 
     </div>
@@ -572,5 +594,33 @@
       <p class="small"><a href="#contenu">Retour en haut</a></p>
     </div>
   </footer>
+
+  <script>
+    const emailCopyButton = document.getElementById("copy-email");
+    const emailCopyStatus = document.getElementById("email-copy-status");
+
+    window.copyEmailAddress = async function (clipboard = navigator.clipboard) {
+      try {
+        if (!clipboard || typeof clipboard.writeText !== "function") {
+          throw new Error("Copie automatique indisponible");
+        }
+
+        await clipboard.writeText("contact@moretic.ch");
+        emailCopyStatus.textContent = "Adresse e-mail copiée.";
+        return true;
+      } catch {
+        emailCopyStatus.textContent =
+          "La copie automatique n’a pas fonctionné. Sélectionne l’adresse e-mail ci-dessus et copie-la manuellement.";
+        return false;
+      }
+    };
+
+    emailCopyButton.addEventListener("click", async () => {
+      emailCopyButton.disabled = true;
+      await window.copyEmailAddress();
+      emailCopyButton.disabled = false;
+      emailCopyButton.focus();
+    });
+  </script>
 </body>
 </html>
