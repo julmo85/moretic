@@ -194,8 +194,15 @@
       border: 2px solid #ffffff;
     }
 
+    /* Boutons secondaires sur fond clair : texte et contour vert foncé. */
     .button.secondary {
       background: transparent;
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* Le bandeau sombre conserve ses boutons secondaires blancs. */
+    header .button.secondary {
       color: #ffffff;
       border-color: rgba(255,255,255,0.7);
     }
@@ -475,7 +482,7 @@
         </p>
 
         <div class="hero-actions">
-          <a class="button" href="accessibilite-fribourg.html">Voir le projet en français</a>
+          <a class="button" href="accessibilite-fribourg.html">Français</a>
           <a class="button secondary" href="accessibility-fribourg.html">English</a>
           <a class="button secondary" href="barrierefreiheit-freiburg.html">Deutsch</a>
         </div>
